@@ -1,9 +1,13 @@
-import { GetServerSidePropsContext } from "next";
-import { getServerSession } from "next-auth/next"
+"use client";
+
+import { GetServerSideProps, GetServerSidePropsContext } from "next";
+import type { Session } from "next-auth";
+import { getSession, useSession } from "next-auth/react";
 import Link from "next/link";
 
-const Header = ({session} : any) => {
-  console.log(session)
+const Header = () => {
+  const { data: session, status } = useSession();
+
   return (
     <header className="flex h-16 items-center justify-between border-b px-4 lg:h-20 lg:px-10">
       <Link href="/">
@@ -12,26 +16,17 @@ const Header = ({session} : any) => {
         </h1>
       </Link>
       <div>
-        {/* {session ? (
-          <Link href={'/admin'}>{session.user.email}</Link>
+        {session && session.user ? (
+          <Link href={"/mypage"}>{session.user.email}</Link>
         ) : (
           <>
-            <Link href={'/login'}>로그인</Link>
-            <Link href={'/regist'}>회원가입</Link>
+            <Link href={"/login"}>로그인</Link>
+            <Link href={"/regist"}>회원가입</Link>
           </>
-        )} */}
+        )}
       </div>
     </header>
   );
 };
-export async function getServerSideProps(context: GetServerSidePropsContext) {
-  const session = await getServerSession(context);
-
-  return {
-    props: {
-      session
-    }
-  };
-}
 
 export default Header;
