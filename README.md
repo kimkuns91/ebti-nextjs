@@ -1,36 +1,18 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## 클라이언트
 
-## Getting Started
+- EBTI 1.1 콘텐츠 사용 범위 및 제한에 대한 매뉴얼
 
-First, run the development server:
+1. 회원가입: 연령별 제한 여부 및 가입시 필터링(예: 만 14세 이상)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+-----------
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. 개발 로직을 설계하는데, EBTI 1.1 콘텐츠 매뉴얼이 필요. 
+3) 마이페이지(프로필) 정의: 가입한 회원 페이지서 무엇을 보여줄지
+4) 서비스 이용관련 : 무료 체험 횟수 / 다운로드 수 제한 등 범위 설정
+5)  쿠폰 부여 및 발급 정책
+6) 멘토링, 네트워킹, 컨설팅 카테고리 정의
+7) 메인페이지에 보여질 구성 언급(*재익 디자이너 가안 기준)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Fonts
+영문폰트 : Montserrat
+한글폰트는 Noto sans

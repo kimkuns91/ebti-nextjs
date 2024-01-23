@@ -1,27 +1,28 @@
-"use client";
+import { authOptions } from '@/libs/auth';
+import { getServerSession } from 'next-auth';
+import Link from 'next/link';
+import Profile from './Profile';
 
-import { GetServerSideProps, GetServerSidePropsContext } from "next";
-import type { Session } from "next-auth";
-import { getSession, useSession } from "next-auth/react";
-import Link from "next/link";
-
-const Header = () => {
-  const { data: session, status } = useSession();
-
+const Header = async () => {
+  const session = await getServerSession(authOptions);
   return (
-    <header className="flex h-16 items-center justify-between border-b px-4 lg:h-20 lg:px-10">
+    <header className="container flex h-16 items-center justify-between border-b lg:h-20">
       <Link href="/">
         <h1 className="text-3xl font-medium text-slate-600 lg:text-4xl">
           이비티아이 EBTI
         </h1>
       </Link>
-      <div>
+      <div className="flex gap-6 items-center justify-center">
         {session && session.user ? (
-          <Link href={"/mypage"}>{session.user.email}</Link>
+          <>
+            <p>{session.user.name} 님</p>
+            <Link href={'/myreport'}>내 보고서</Link>
+            <Profile imageUrl={session.user.image ?? '/images/noUser.webp'} />
+          </>
         ) : (
           <>
-            <Link href={"/login"}>로그인</Link>
-            <Link href={"/regist"}>회원가입</Link>
+            <Link href={'/login'}>로그인</Link>
+            <Link href={'/regist'}>회원가입</Link>
           </>
         )}
       </div>

@@ -10,14 +10,14 @@ export default function Home() {
   return (
     <div>
       <pre className="p-4">
-        {JSON.stringify(
+        {/* {JSON.stringify(
           {
             session,
             status,
           },
           null,
           2
-        )}
+        )} */}
       </pre>
     </div>
   );
