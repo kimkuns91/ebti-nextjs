@@ -16,9 +16,9 @@ const UserJob = ({ userJobValue, setUserJobValue }: UserJobProps) => {
     setUserJobValue({ ...userJobValue, [e.target.name]: e.target.value });
   };
   return (
-    <div className="flex w-full flex-col">
+    <div className="flex w-full flex-col gap-10">
       <div className="flex flex-col gap-6">
-        <label htmlFor="job">직업</label>
+        <label className="text-lg font-semibold" htmlFor="job">직업</label>
         <Input
           id="job"
           name="job"
@@ -26,8 +26,8 @@ const UserJob = ({ userJobValue, setUserJobValue }: UserJobProps) => {
           onChange={handleValue}
         />
       </div>
-      <div>
-        <p>직업 만족도</p>
+      <div className="flex flex-col gap-6">
+        <p className="text-lg font-semibold">직업 만족도</p>
         <div className="grid grid-cols-5 gap-4">
           {jobSatisfactions.map((jobSatisfaction, index) => (
             <div key={index} className="flex gap-2">
@@ -44,8 +44,8 @@ const UserJob = ({ userJobValue, setUserJobValue }: UserJobProps) => {
           ))}
         </div>
       </div>
-      <div>
-        <p>직무</p>
+      <div className="flex flex-col gap-6">
+        <p className="text-lg font-semibold">직무</p>
         <div className="grid grid-cols-5 gap-4">
           {tasks.map((task, index) => (
             <div key={index} className="flex gap-2">
@@ -62,8 +62,8 @@ const UserJob = ({ userJobValue, setUserJobValue }: UserJobProps) => {
           ))}
         </div>
       </div>
-      <div>
-        <p>경력</p>
+      <div className="flex flex-col gap-6">
+        <p className="text-lg font-semibold">경력</p>
         <div className="grid grid-cols-5 gap-4">
           {careers.map((career, index) => (
             <div key={index} className="flex gap-2">

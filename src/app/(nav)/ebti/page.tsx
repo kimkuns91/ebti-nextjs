@@ -4,14 +4,21 @@ import EBTI from '@/components/EBTI';
 import UserInfo from '@/components/UserInfo';
 import UserJob from '@/components/UserJob';
 import { questions } from '@/configs/questions';
-import { RefObject, createRef, useRef, useState } from 'react';
+import axios from 'axios';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
+import { RefObject, createRef, useEffect, useRef, useState } from 'react';
 
 export default function EBTIPage() {
+  const router = useRouter();
+  const { data: session, status } = useSession();
+
   const questionRefs = useRef<RefObject<HTMLDivElement>[]>(
     questions.map(() => createRef())
   );
 
   const [progress, setProgress] = useState<number>(0);
+  const [user, setUser] = useState({});
   const [userInfoValue, setUserInfoValue] = useState<{ [key: string]: string }>(
     {}
   );
@@ -19,7 +26,6 @@ export default function EBTIPage() {
   const [userJobValue, setUserJobValue] = useState<{ [key: string]: string }>(
     {}
   );
-  console.log(userJobValue);
   const [answerValue, setAnswerValue] = useState<{ [key: string]: number }>({});
 
   const scrollToQuestion = (questionIndex: number) => {
@@ -36,7 +42,7 @@ export default function EBTIPage() {
     setProgress(progress - 1);
   };
 
-  const handleNextProgress = () => {
+  const handleNextProgress = async () => {
     if (progress === 0) {
       if (
         !userInfoValue['name'] ||
@@ -73,15 +79,33 @@ export default function EBTIPage() {
           return;
         }
       }
-      console.log(userInfoValue);
-      console.log(userJobValue);
-      console.log(answerValue);
+      const response = await axios.post('/api/ebti', {
+        userInfoValue,
+        userJobValue,
+        answerValue,
+      });
+      if(response.status === 201) {
+        router.push('/ebti/complete')
+      }
     }
     if (progress === 3) return;
   };
 
+  useEffect(() => {
+    if (session && status === 'authenticated') {
+      setUserInfoValue({
+        ...userInfoValue,
+        name: session?.user?.name ?? '',
+        email: session?.user?.email ?? '',
+      });
+    } else {
+      alert('로그인이 필요한 서비스입니다.');
+      router.push('/login');
+    }
+  }, []);
+
   return (
-    <div className="container flex flex-col items-center justify-center gap-10">
+    <div className="container flex flex-col items-center justify-center gap-10 py-10">
       {progress === 0 && (
         <UserInfo
           userInfoValue={userInfoValue}

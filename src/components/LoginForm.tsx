@@ -26,11 +26,11 @@ const LoginForm = () => {
     }
   };
   return (
-    <div className="container flex flex-col gap-4 max-w-[440px] py-20">
+    <div className="container flex max-w-[440px] flex-col gap-4 py-20">
       <h2 className="text-lg font-bold">로그인</h2>
       <div>
         <button
-          className="w-full rounded-md flex flex-row items-center justify-center gap-3 bg-[#FEE500] text-md px-5 py-3"
+          className="flex w-full flex-row items-center justify-center gap-3 rounded-md bg-[#FEE500] px-5 py-3 font-medium"
           onClick={() => signIn('kakao', { redirect: true, callbackUrl: '/' })}
         >
           <Image
@@ -43,7 +43,7 @@ const LoginForm = () => {
         </button>
       </div>
       <div>
-        <p className="text-center text-[#919191] custom-border my-4">
+        <p className="custom-border my-4 text-center text-[#919191]">
           또는 이메일로 로그인
         </p>
       </div>
@@ -51,7 +51,7 @@ const LoginForm = () => {
         <label htmlFor="email">이메일</label>
         <Input ref={emailRef} type="text" name="email" />
         <label htmlFor="password">비밀번호</label>
-        <Input ref={passwordRef} type="text" name="password" />
+        <Input ref={passwordRef} type="password" name="password" />
         <Button type="submit">로그인</Button>
       </form>
       <Button

@@ -16,18 +16,23 @@ const UserInfo = ({ userInfoValue, setUserInfoValue }: UserInfoProps) => {
     setUserInfoValue({ ...userInfoValue, [e.target.name]: e.target.value });
   };
   return (
-    <div className="flex w-full flex-col">
+    <div className="flex w-full flex-col gap-6">
       <div className="flex flex-col gap-6">
-        <label htmlFor="name">성함</label>
+        <label className="text-lg font-semibold" htmlFor="name">
+          성함
+        </label>
         <Input
           id="name"
           name="name"
           value={userInfoValue['name'] || ''}
           onChange={handleValue}
+          readOnly
         />
       </div>
       <div className="flex flex-col gap-6">
-        <label htmlFor="birth">생년월일</label>
+        <label className="text-lg font-semibold" htmlFor="birth">
+          생년월일
+        </label>
         <Input
           id="birth"
           name="birth"
@@ -36,16 +41,21 @@ const UserInfo = ({ userInfoValue, setUserInfoValue }: UserInfoProps) => {
         />
       </div>
       <div className="flex flex-col gap-6">
-        <label htmlFor="birth">이메일</label>
+        <label className="text-lg font-semibold" htmlFor="email">
+          이메일
+        </label>
         <Input
           id="email"
           name="email"
           value={userInfoValue['email'] || ''}
           onChange={handleValue}
+          readOnly
         />
       </div>
       <div className="flex flex-col gap-6">
-        <label htmlFor="birth">SNS</label>
+        <label className="text-lg font-semibold" htmlFor="birth">
+          SNS
+        </label>
         <Input
           id="sns"
           name="sns"
@@ -53,8 +63,8 @@ const UserInfo = ({ userInfoValue, setUserInfoValue }: UserInfoProps) => {
           onChange={handleValue}
         />
       </div>
-      <div>
-        <p>학력</p>
+      <div className="flex flex-col gap-6">
+        <p className="text-lg font-semibold">학력</p>
         <div className="grid grid-cols-4 gap-4">
           {educations.map((education, index) => (
             <div key={index} className="flex gap-2">

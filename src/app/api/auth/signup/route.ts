@@ -1,8 +1,8 @@
-import User from "@/libs/models/user.model";
-import { connectDB } from "@/libs/mongodb";
-import mongoose from "mongoose";
-import { NextResponse } from "next/server";
-import bcrypt from "bcryptjs";
+import User from '@/libs/models/user.model';
+import { connectDB } from '@/libs/mongodb';
+import bcrypt from 'bcryptjs';
+import mongoose from 'mongoose';
+import { NextResponse } from 'next/server';
 
 export async function POST(request: Request) {
   try {
@@ -15,7 +15,7 @@ export async function POST(request: Request) {
     if (user) {
       return NextResponse.json(
         {
-          message: "이미 가입된 이메일입니다.",
+          message: '이미 가입된 이메일입니다.',
         },
         {
           status: 409,
@@ -24,17 +24,21 @@ export async function POST(request: Request) {
     }
 
     const hashedPassword = await bcrypt.hash(password, 12);
+
     const newUser = new User({
       name,
       email,
       password: hashedPassword,
+      role: 'user',
+      provider: 'credentials',
     });
 
+    console.log(newUser)
     await newUser.save();
 
     return NextResponse.json(
       {
-        message: "회원가입이 완료되었습니다.",
+        message: '회원가입이 완료되었습니다.',
       },
       { status: 201 }
     );

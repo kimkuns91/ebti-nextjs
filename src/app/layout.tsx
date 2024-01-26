@@ -6,6 +6,7 @@ import type { Metadata } from 'next';
 import { getServerSession } from 'next-auth';
 import { Montserrat, Noto_Sans_KR } from 'next/font/google';
 
+import Footer from '@/components/Footer';
 import './globals.css';
 
 const notoSansKr = Noto_Sans_KR({
@@ -34,7 +35,7 @@ export default async function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          'flex h-screen w-screen text-sm lg:text-base',
+          'flex text-sm lg:text-base',
           notoSansKr.className,
           montserratEn.variable
         )}
@@ -44,8 +45,8 @@ export default async function RootLayout({
             <Header />
             <Navbar />
             <div className="flex flex-1 flex-col overflow-y-auto">
-              <main className="container flex flex-1 flex-col">{children}</main>
-              {/* Footer */}
+              <main className="flex flex-1 flex-col">{children}</main>
+              <Footer />
             </div>
           </div>
         </SessionProvider>

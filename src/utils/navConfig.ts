@@ -4,20 +4,24 @@ interface NavItem {
 }
 const navConfig: NavItem[] = [
   {
-    title: 'EBTI 검사',
-    path: '/ebti',
+    title: 'HOME',
+    path: '/',
   },
   {
-    title: '멘토링',
-    path: '/mentoring',
+    title: 'COLLABO',
+    path: '/collabo',
   },
   {
-    title: '네트워킹',
-    path: '/networking',
+    title: 'LABS',
+    path: '/labs',
   },
   {
-    title: '컨설팅',
-    path: '/consulting',
+    title: 'SEOUL',
+    path: '/seoul',
+  },
+  {
+    title: 'TOOLKIT',
+    path: '/toolkit',
   },
 ];
 

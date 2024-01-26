@@ -20,7 +20,7 @@ const Profile = ({ imageUrl }: ProfileProps) => {
     <DropdownMenu.Root>
       <DropdownMenu.Trigger asChild>
         <button
-          className="rounded-full overflow-hidden w-[35px] h-[35px] inline-flex items-center justify-center border border-slate-50"
+          className="inline-flex size-[35px] items-center justify-center overflow-hidden rounded-full border border-slate-50"
           aria-label="Customise options"
         >
           <Image
@@ -36,14 +36,14 @@ const Profile = ({ imageUrl }: ProfileProps) => {
 
       <DropdownMenu.Portal>
         <DropdownMenu.Content
-          className="min-w-[120px] bg-white rounded-md p-[5px] shadow-[0px_10px_38px_-10px_rgba(22,_23,_24,_0.35),_0px_10px_20px_-15px_rgba(22,_23,_24,_0.2)] will-change-[opacity,transform] data-[side=top]:animate-slideDownAndFade data-[side=right]:animate-slideLeftAndFade data-[side=bottom]:animate-slideUpAndFade data-[side=left]:animate-slideRightAndFade"
+          className="data-[side=top]:animate-slideDownAndFade data-[side=right]:animate-slideLeftAndFade data-[side=bottom]:animate-slideUpAndFade data-[side=left]:animate-slideRightAndFade min-w-[120px] rounded-md bg-white p-[5px] shadow-[0px_10px_38px_-10px_rgba(22,_23,_24,_0.35),_0px_10px_20px_-15px_rgba(22,_23,_24,_0.2)] will-change-[opacity,transform]"
           sideOffset={10}
         >
           <DropdownMenu.Item
             onClick={() => {
               router.push('/mypage');
             }}
-            className="cursor-pointer hover:bg-slate-200 group text-[13px] leading-none text-violet11 rounded-[3px] flex items-center h-[25px] px-[5px] relative pl-[10px] select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-violet9 data-[highlighted]:text-violet1"
+            className="text-violet11 data-[disabled]:text-mauve8 data-[highlighted]:bg-violet9 data-[highlighted]:text-violet1 group relative flex h-[25px] cursor-pointer select-none items-center rounded-[3px] px-[5px] pl-[10px] text-[13px] leading-none outline-none hover:bg-slate-200 data-[disabled]:pointer-events-none"
           >
             마이페이지
           </DropdownMenu.Item>
@@ -51,16 +51,16 @@ const Profile = ({ imageUrl }: ProfileProps) => {
             onClick={() => {
               router.push('/payment');
             }}
-            className="cursor-pointer hover:bg-slate-200 group text-[13px] leading-none text-violet11 rounded-[3px] flex items-center h-[25px] px-[5px] relative pl-[10px] select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-violet9 data-[highlighted]:text-violet1"
+            className="text-violet11 data-[disabled]:text-mauve8 data-[highlighted]:bg-violet9 data-[highlighted]:text-violet1 group relative flex h-[25px] cursor-pointer select-none items-center rounded-[3px] px-[5px] pl-[10px] text-[13px] leading-none outline-none hover:bg-slate-200 data-[disabled]:pointer-events-none"
           >
             거래내역
           </DropdownMenu.Item>
-          <DropdownMenu.Separator className="border h-[1px] bg-violet6 m-[5px]" />
+          <DropdownMenu.Separator className="bg-violet6 m-[5px] h-[1px] border" />
           <DropdownMenu.Item
             onClick={() => {
               signOut();
             }}
-            className="cursor-pointer hover:bg-slate-200 group text-[13px] leading-none text-violet11 rounded-[3px] flex items-center h-[25px] px-[5px] relative pl-[10px] select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-violet9 data-[highlighted]:text-violet1"
+            className="text-violet11 data-[disabled]:text-mauve8 data-[highlighted]:bg-violet9 data-[highlighted]:text-violet1 group relative flex h-[25px] cursor-pointer select-none items-center rounded-[3px] px-[5px] pl-[10px] text-[13px] leading-none outline-none hover:bg-slate-200 data-[disabled]:pointer-events-none"
           >
             로그아웃
           </DropdownMenu.Item>
