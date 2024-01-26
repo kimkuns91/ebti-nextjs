@@ -1,3 +1,4 @@
+import { ebti, ebti_24 } from '@/configs/ebti';
 import { EBTI, answerValueProps } from '@/types';
 
 const returnAnswerValue = (item: EBTI) => {
@@ -22,9 +23,8 @@ const returnAnswerValue = (item: EBTI) => {
     'E-02': item['E-02'],
     'E-03': item['E-03'],
     'E-04': item['E-04'],
-  }
-  return answerValue
-
+  };
+  return answerValue;
 };
 
 export const typeOfEntrepreneur = (item: EBTI) => {
@@ -51,6 +51,18 @@ export const typeOfEntrepreneur = (item: EBTI) => {
       answerValue['E-03'] +
       answerValue['E-04'],
   };
+  const categoryScores = {
+    발견: answerValue['H-01'] + answerValue['H-02'],
+    인식: answerValue['H-03'] + answerValue['H-04'],
+    탐색: answerValue['D-01'] + answerValue['D-02'],
+    검색: answerValue['D-03'] + answerValue['D-04'],
+    연결: answerValue['I-01'] + answerValue['I-02'],
+    결합: answerValue['I-03'] + answerValue['I-04'],
+    열정: answerValue['C-01'] + answerValue['C-02'],
+    용기: answerValue['C-03'] + answerValue['C-04'],
+    평가: answerValue['E-01'] + answerValue['E-02'],
+    판단: answerValue['E-03'] + answerValue['E-04'],
+  };
   // 우선순위를 정의하는 배열
   const priority = ['D', 'I', 'C', 'E'];
   const sortedScores = Object.entries(scores).sort((a, b) => {
@@ -61,10 +73,39 @@ export const typeOfEntrepreneur = (item: EBTI) => {
     // 점수에 따라 정렬
     return b[1] - a[1];
   });
-  const type = sortedScores.map((score) => score[0]).join('')
-  return type
-};
 
+  const mainAbility = Object.entries(categoryScores)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 3)
+    .map((entry) => entry[0])
+    .join(', ');
+  const weakAbility = Object.entries(categoryScores)
+    .sort((a, b) => b[1] - a[1])
+    .slice(7, 9)
+    .map((entry) => entry[0])
+    .join(', ');
+  const D = categoryScores.탐색 + categoryScores.평가;
+  const d = categoryScores.검색 + categoryScores.판단;
+  const Dd = D + d;
+  const I = categoryScores.탐색 + categoryScores.연결;
+  const i = categoryScores.검색 + categoryScores.결합;
+  const Ii = I + i;
+  const C = categoryScores.연결 + categoryScores.열정;
+  const c = categoryScores.결합 + categoryScores.용기;
+  const Cc = C + c;
+  const E = categoryScores.열정 + categoryScores.평가;
+  const e = categoryScores.용기 + categoryScores.판단;
+  const Ee = E + e;
+  // return 값들
+  const type = sortedScores.map((score) => score[0]).join('');
+  const descOfType = ebti
+    .filter((item) => item.type === type[0])
+    .map((item) => item.desc);
+  const desc = ebti_24
+    .filter((item) => item.type === type)
+    .map((item) => item.desc);
+  return { type, desc, descOfType, Dd, Ii, Cc, Ee, mainAbility, weakAbility };
+};
 
 export const totalHappiness = (answerValue: answerValueProps) => {
   const totalScore =

@@ -97,13 +97,14 @@ export const ebti_24 = [
       '서로 다른 것을 연결하고 새로운 것을 잘 찾는 발견자형 기업가 행동을 자주 한다.\n자기 내면에 균형자 감각이 숨어 있고 창조자 감각이 부족하다.\n사람들에게는 서로 다른 것을 연결하는 혁신자형으로 보인다.',
     collaborationType: 'CEID',
     collaborationDesc: '용기있는 창조자',
-    collaborationTip: '열정과 용기로 선도적 헌신이 필요할 때 도움을 받을 수 있음',
+    collaborationTip:
+      '열정과 용기로 선도적 헌신이 필요할 때 도움을 받을 수 있음',
   },
   {
     type: 'DCIE',
     desc: '기획하는 발견자',
     feature:
-      '"선도적으로 헌신하고 새로운 것을 잘 찾는 발견자형 기업가 행동을 자주 한다.\n자기 내면에 혁신자 감각이숨어 있고 균형자 감각이 부족하다.\n사람들에게는 선도적으로 헌신하는 창조자형으로 보인다."',
+      '선도적으로 헌신하고 새로운 것을 잘 찾는 발견자형 기업가 행동을 자주 한다.\n자기 내면에 혁신자 감각이숨어 있고 균형자 감각이 부족하다.\n사람들에게는 선도적으로 헌신하는 창조자형으로 보인다.',
     collaborationType: 'EICD',
     collaborationDesc: '판단귀재 균형자',
     collaborationTip: '평가와 판단으로 좋음을 선별할 떄 도움을 받을 수 있음',
@@ -112,7 +113,7 @@ export const ebti_24 = [
     type: 'DCEI',
     desc: '트랜드 발견자',
     feature:
-      '"서로 다른 것을 연결하고 새로운 것을 잘 찾는 발견자형 행동을 자주 한다.\n자기 내면에 균형자 감각이 숨어 있고 혁신자 감각이 부족하다.\n사람들에게는 선도적으로 헌신하는 창조자형으로 보인다."',
+      '서로 다른 것을 연결하고 새로운 것을 잘 찾는 발견자형 행동을 자주 한다.\n자기 내면에 균형자 감각이 숨어 있고 혁신자 감각이 부족하다.\n사람들에게는 선도적으로 헌신하는 창조자형으로 보인다.',
     collaborationType: 'IECD',
     collaborationDesc: '이종결합 혁신자',
     collaborationTip: '서로 다른 것을 연결하고 결합할 때 도움을 받을 수 있음',
@@ -121,10 +122,11 @@ export const ebti_24 = [
     type: 'DEIC',
     desc: '일잘러 발견자',
     feature:
-      '"서로 다른 것을 연결하고 새로운 것을 잘 찾는 발견자형 행동을 자주 한다.\n자기 내면에 혁신자 감각이 숨어 있고 창조자 감각이 부족하다.\n사람들에게는 좋음을 선별하는 균형자형으로 보인다."',
+      '서로 다른 것을 연결하고 새로운 것을 잘 찾는 발견자형 행동을 자주 한다.\n자기 내면에 혁신자 감각이 숨어 있고 창조자 감각이 부족하다.\n사람들에게는 좋음을 선별하는 균형자형으로 보인다.',
     collaborationType: 'CIED',
     collaborationDesc: '열정있는 창조자',
-    collaborationTip: '열정과 용기로 선도적 헌신이 필요할 때 도움을 받을 수 있음',
+    collaborationTip:
+      '열정과 용기로 선도적 헌신이 필요할 때 도움을 받을 수 있음',
   },
   {
     type: 'DECI',
@@ -148,16 +150,17 @@ export const ebti_24 = [
     type: 'IDEC',
     desc: '결과예측 혁신자',
     feature:
-      '"새로운 것을 잘 찾고 서로 다른 것을 융합하는 혁신자형 행동을 자주 한다.\n자기 내면에 균형자 감각이 숨어 있고 창조자 감각이 부족하다.\n사람들에게는 새로운 것을 잘 찾는 발견자형으로 보인다."',
+      '새로운 것을 잘 찾고 서로 다른 것을 융합하는 혁신자형 행동을 자주 한다.\n자기 내면에 균형자 감각이 숨어 있고 창조자 감각이 부족하다.\n사람들에게는 새로운 것을 잘 찾는 발견자형으로 보인다.',
     collaborationType: 'CEDI',
     collaborationDesc: '신중대담 창조자',
-    collaborationTip: '열정과 용기로 선도적 헌신이 필요할 때 도움을 받을 수 있음',
+    collaborationTip:
+      '열정과 용기로 선도적 헌신이 필요할 때 도움을 받을 수 있음',
   },
   {
     type: 'ICDE',
     desc: '힙쿨스터 혁신자',
     feature:
-      '"선도적으로 헌신하고 서로 다른 것을 융합하는 혁신자형 행동을 자주 한다.\n자기 내면에 발견자 감각이 숨어 있고 균형자 감각이 부족하다.\n사람들에게는 선도적으로 헌신하는 창조자형으로 보인다."',
+      '선도적으로 헌신하고 서로 다른 것을 융합하는 혁신자형 행동을 자주 한다.\n자기 내면에 발견자 감각이 숨어 있고 균형자 감각이 부족하다.\n사람들에게는 선도적으로 헌신하는 창조자형으로 보인다.',
     collaborationType: 'EDCI',
     collaborationDesc: '명랑새롬 균형자',
     collaborationTip: '평가와 판단으로 좋음을 선별할 때 도움을 받을 수 있음',
@@ -166,34 +169,37 @@ export const ebti_24 = [
     type: 'ICED',
     desc: '신기방기 혁신자',
     feature:
-      '"선도적으로 헌신하고 서로 다른 것을 융합하는 혁신자형 행동을 자주 한다.\n자기 내면에 균형자 감각이 숨어 있고 발견자 감각이 부족하다.\n사람들에게는 선도적으로 헌신하는 창조자형으로 보인다."',
+      '선도적으로 헌신하고 서로 다른 것을 융합하는 혁신자형 행동을 자주 한다.\n자기 내면에 균형자 감각이 숨어 있고 발견자 감각이 부족하다.\n사람들에게는 선도적으로 헌신하는 창조자형으로 보인다.',
     collaborationType: 'DECI',
     collaborationDesc: '호기심현실 발견자',
-    collaborationTip: '탐색과 검색으로 새로운 기회를 발견 할 때 도움을 받을 수 있음',
+    collaborationTip:
+      '탐색과 검색으로 새로운 기회를 발견 할 때 도움을 받을 수 있음',
   },
   {
     type: 'IEDC',
     desc: '균형찾는 혁신자',
     feature:
-      '"좋음을 선별하고 서로 다른 것을 융합하는 혁신자형 행동을 자주 한다.\n자기 내면에 발견자 감각이 숨어 있고 창조자 감각이 부족하다.\n사람들에게는 좋음을 선별하는 균형자형으로 보인다."',
+      '좋음을 선별하고 서로 다른 것을 융합하는 혁신자형 행동을 자주 한다.\n자기 내면에 발견자 감각이 숨어 있고 창조자 감각이 부족하다.\n사람들에게는 좋음을 선별하는 균형자형으로 보인다.',
     collaborationType: 'CDEI',
     collaborationDesc: '열정호기심 창조자',
-    collaborationTip: '열정과 용기로 선도적 헌신이 필요할 때 도움을 받을 수 있음',
+    collaborationTip:
+      '열정과 용기로 선도적 헌신이 필요할 때 도움을 받을 수 있음',
   },
   {
     type: 'IECD',
     desc: '이종결합 혁신자',
     feature:
-      '"좋음을 선별하고 서로 다름을 융합하는 혁신자형 행동을 자주 한다.\n자기 내면에 창조자 감각이 숨어 있고 발견자 감각이 부족하다.\n사람들에게는 좋음을 선별하는 균형자형으로 보인다."',
+      '좋음을 선별하고 서로 다름을 융합하는 혁신자형 행동을 자주 한다.\n자기 내면에 창조자 감각이 숨어 있고 발견자 감각이 부족하다.\n사람들에게는 좋음을 선별하는 균형자형으로 보인다.',
     collaborationType: 'DCEI',
     collaborationDesc: '트랜드 발견자',
-    collaborationTip: '탐색과 검색으로 새로운 기회를 발견 할 때 도움을 받을 수 있음',
+    collaborationTip:
+      '탐색과 검색으로 새로운 기회를 발견 할 때 도움을 받을 수 있음',
   },
   {
     type: 'CDIE',
     desc: '개척하는 창조자',
     feature:
-      '"새로운 것을 잘 찾고 선도적으로 헌신하는 창조자형 행동을 자주 한다.\n자기 내면에 혁신자 감각이 숨어 있고 균형자 감각이 부족하다.\n사람들에게는 새로운 것을 잘 찾는 발견자형으로 보인다."',
+      '새로운 것을 잘 찾고 선도적으로 헌신하는 창조자형 행동을 자주 한다.\n자기 내면에 혁신자 감각이 숨어 있고 균형자 감각이 부족하다.\n사람들에게는 새로운 것을 잘 찾는 발견자형으로 보인다.',
     collaborationType: 'EIDC',
     collaborationDesc: '해법찾는 균형자',
     collaborationTip: '평가와 판단으로 좋음을 선별할 때 도움을 받을 수 있음',
@@ -202,54 +208,105 @@ export const ebti_24 = [
     type: 'CDEI',
     desc: '열정호기심 창조자',
     feature:
-      '"새로운 것을 잘 찾고 선도적으로 헌신하는 창조자형 행동을 자주 한다.\n자기 내면에 균형자 감각이 숨어 있고 혁신자 감각이 부족하다.\n사람들에게는 새로운 것을 잘 찾는 발견자형으로 보인다."',
+      '새로운 것을 잘 찾고 선도적으로 헌신하는 창조자형 행동을 자주 한다.\n자기 내면에 균형자 감각이 숨어 있고 혁신자 감각이 부족하다.\n사람들에게는 새로운 것을 잘 찾는 발견자형으로 보인다.',
     collaborationType: 'IEDC',
     collaborationDesc: '균형찾는 혁신자',
     collaborationTip: '서로 다른 것을 연결하고 결합할 때 도움을 받을 수 있음',
   },
   {
-    type: '',
-    desc: '',
+    type: 'CIDE',
+    desc: '독창주의 창조자',
     feature:
-      '',
-    collaborationType: '',
-    collaborationDesc: '',
-    collaborationTip: '',
+      '서로 다름을 융합하고 선도적으로 헌신하는 창조자형 행동을 자주 한다.\n자기 내면에 발견자 감각이 숨어 있고 균형자 감각이 부족하다.\n사람들에게는 새로운 것을 잘 찾는 혁신자형으로 보인다.',
+    collaborationType: 'EDIC',
+    collaborationDesc: '미식가 균형자',
+    collaborationTip: '평가와 판단으로 좋음을 선별할 때 도움을 받을 수 있음',
   },
   {
-    type: '',
-    desc: '',
+    type: 'CIED',
+    desc: '열정있는 창조자',
     feature:
-      '',
-    collaborationType: '',
-    collaborationDesc: '',
-    collaborationTip: '',
+      '서로 다름을 융합하고 선도적으로 헌신하는 창조자형 행동을 자주 한다.\n자기 내면에 균형자 감각이 숨어 있고 발견자 감각이 부족하다.\n사람들에게는 새로운 것을 잘 찾는 혁신자형으로 보인다.',
+    collaborationType: 'DEIC',
+    collaborationDesc: '일잘러 발견자',
+    collaborationTip:
+      '탐색과 검색으로 새로운 기회를 발견 할 때 도움을 받을 수 있음',
   },
   {
-    type: '',
-    desc: '',
+    type: 'CEDI',
+    desc: '신중대담 창조자',
     feature:
-      '',
-    collaborationType: '',
-    collaborationDesc: '',
-    collaborationTip: '',
+      '좋음을 선별하고 선도적으로 헌신하는 창조자형 행동을 자주 한다.\n자기 내면에 발견자 감각이 숨어 있고 혁신자 감각이 부족하다.\n사람들에게는 좋음을 선별하는 균형자형으로 보인다.',
+    collaborationType: 'IDEC',
+    collaborationDesc: '결과예측 혁신자',
+    collaborationTip: '서로 다른 것을 연결하고 결합할 때 도움을 받을 수 있음',
   },
   {
-    type: '',
-    desc: '',
+    type: 'CEID',
+    desc: '용기있는 창조자',
     feature:
-      '',
-    collaborationType: '',
-    collaborationDesc: '',
-    collaborationTip: '',
+      '좋음을 선별하고 선도적으로 헌신하는 창조자형 행동을 자주 한다.\n자기 내면에 혁신자 감각이 숨어 있고 발견자 감각이 부족하다.\n사람들에게는 좋음을 선별하는 균형자형으로 보인다.',
+    collaborationType: 'DIEC',
+    collaborationDesc: '경험주의 발견자',
+    collaborationTip:
+      '탐색과 검색으로 새로운 기회를 발견 할 때 도움을 받을 수 있음',
   },
   {
-    type: '',
-    desc: '',
+    type: 'EDIC',
+    desc: '미식가 균형자',
     feature:
-      '',
-    collaborationType: '',
-    collaborationDesc: '',
-    collaborationTip: '',
+      '새로운 것을 잘 찾고 좋음을 선별하는 균형자형 행동을 자주 한다.\n자기 내면에 창조자 감각이 숨어 있고 혁신자 감각이 부족하다.\n사람들에게는 새로운 것을 잘 찾는 발견자형으로 보인다.',
+    collaborationType: 'CIDE',
+    collaborationDesc: '독창주의 창조자',
+    collaborationTip:
+      '열정과 용기로 선도적 헌신이 필요할 때 도움을 받을 수 있음',
+  },
+  {
+    type: 'EDCI',
+    desc: '명랑새롬 균형자',
+    feature:
+      '새로운 것을 잘 찾고 좋음을 선별하는 균형자형 행동을 자주 한다.\n자기 내면에 혁신자 감각이 숨어 있고 창조자 감각이 부족하다.\n사람들에게는 새로운 것을 잘 찾는 발견자형으로 보인다.',
+    collaborationType: 'ICDE',
+    collaborationDesc: '힙쿨스터 혁신자',
+    collaborationTip: '서로 다른 것을 연결하고 결합할 때 도움을 받을 수 있음',
+  },
+  {
+    type: 'ECDI',
+    desc: '긍정하는 균형자',
+    feature:
+      '선도적으로 헌신하고 좋음을 선별하는 균형자형 행동을 자주 한다.\n자기 내면에 발견자 감각이 숨어 있고 혁신자 감각이 부족하다.\n사람들에게는 선도적으로 헌신하는 창조자형으로 보인다.',
+    collaborationType: 'IDCE',
+    collaborationDesc: '뒤에있는 혁신자',
+    collaborationTip: '서로 다른 것을 연결하고 결합할 때 도움을 받을 수 있음',
+  },
+  {
+    type: 'ECID',
+    desc: '가치선별 균형자',
+    feature:
+      '선도적으로 헌신하고 좋음을 선별하는 균형자형 행동을 자주 한다.\n자기 내면에 혁신자 감각이 숨어 있고 발견자 감각이 부족하다.\n사람들에게는 선도적으로 헌신하는 창조자형으로 보인다.',
+    collaborationType: 'DICE',
+    collaborationDesc: '바른주의 발견자',
+    collaborationTip:
+      '탐색과 검색으로 새로운 기회를 발견 할 때 도움을 받을 수 있음',
+  },
+  {
+    type: 'EIDC',
+    desc: '해법찾는 균형자',
+    feature:
+      '서로 다름을 융합하고 좋음을 선별하는 균형자형 행동을 자주 한다.\n자기 내면에 발견자 감각이 숨어 있고 창조자 감각이 부족하다.\n사람들에게는 서로 다름을 융합하는 혁신자형으로 보인다.',
+    collaborationType: 'CDIE',
+    collaborationDesc: '개척하는 창조자',
+    collaborationTip:
+      '열정과 용기로 선도적 헌신이 필요할 때 도움을 받을 수 있음',
+  },
+  {
+    type: 'EICD',
+    desc: '판단귀재 균형자',
+    feature:
+      '서로 다름을 융합하고 좋음을 선별하는 균형자형 행동을 자주 한다.\n자기 내면에 창조자 감각이 숨어 있고 발견자 감각이 부족하다.\n사람들에게는 서로 다름을 융합하는 혁신자형으로 보인다.',
+    collaborationType: 'DCIE',
+    collaborationDesc: '기획하는 발견자',
+    collaborationTip:
+      '탐색과 검색으로 새로운 기회를 발견 할 때 도움을 받을 수 있음',
   },
 ];

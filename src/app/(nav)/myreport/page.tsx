@@ -30,8 +30,9 @@ export default function MyReport() {
   }, []);
   return (
     <div className="container py-20">
+      <h2 className="mb-8 text-2xl font-bold">내 보고서</h2>
       <table className="w-full table-auto">
-        <thead className="text-left">
+        <thead className="border-b py-8 text-left">
           <tr>
             <th>검사 일시</th>
             <th>EBTI 유형</th>
@@ -42,25 +43,24 @@ export default function MyReport() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>2024년 1월 10일 5:24 오후</td>
-            <td>IDCE 뒤에있는 혁신자</td>
-            <td>혁신자 (새로움을 발견하고 다름을 융합)</td>
-            <td>좌뇌 (32, 0)</td>
-            <td>결합, 검색, 평가</td>
-            <td>보고서 보러가기</td>
-          </tr>
           {data.map((item) => (
             <tr key={item._id}>
               <td>
                 {format(new Date(item.createdAt), 'yyyy년 M월 d일 HH:mm')}
               </td>
               <td>
-                {typeOfEntrepreneur(item)}
+                {typeOfEntrepreneur(item).type} {typeOfEntrepreneur(item).desc}
               </td>
-              <td>혁신자 (새로움을 발견하고 다름을 융합)</td>
-              <td>좌뇌 (32, 0)</td>
-              <td>결합, 검색, 평가</td>
+              <td>{typeOfEntrepreneur(item).descOfType}</td>
+              <td>
+                {typeOfEntrepreneur(item).Dd + typeOfEntrepreneur(item).Ii >
+                typeOfEntrepreneur(item).Cc + typeOfEntrepreneur(item).Ee
+                  ? '좌뇌'
+                  : '우뇌'}{' '}
+                ({typeOfEntrepreneur(item).Dd + typeOfEntrepreneur(item).Ii},{' '}
+                {typeOfEntrepreneur(item).Cc + typeOfEntrepreneur(item).Ee})
+              </td>
+              <td>{typeOfEntrepreneur(item).mainAbility}</td>
               <td>
                 <Link href={`/myreport/${item._id}`}>보고서 보러가기</Link>
               </td>
