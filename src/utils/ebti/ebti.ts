@@ -61,8 +61,10 @@ export const typeOfEntrepreneur = (item: EBTI) => {
     // 점수에 따라 정렬
     return b[1] - a[1];
   });
-  return sortedScores.map((score) => score[0]).join('');
+  const type = sortedScores.map((score) => score[0]).join('')
+  return type
 };
+
 
 export const totalHappiness = (answerValue: answerValueProps) => {
   const totalScore =
