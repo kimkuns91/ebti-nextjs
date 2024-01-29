@@ -12,22 +12,25 @@ import { useEffect, useState } from 'react';
 export default function MyReport() {
   const router = useRouter();
   const { data: session, status } = useSession();
+
   const [data, setData] = useState<EBTI[]>([]);
-  // console.log(data);
+
   useEffect(() => {
     if (status !== 'authenticated') {
       alert('로그인이 필요한 서비스 입니다.');
       router.push('/login');
     }
     (async () => {
+      console.log('session userId : ', session?.user.id);
       const result = await axios.post('/api/myreport', {
-        email: session?.user?.email,
+        userId: session?.user.id,
       });
       // console.log(result.data);
 
       setData(result.data);
     })();
-  }, []);
+  }, [session, status]);
+
   return (
     <div className="container py-20">
       <h2 className="mb-8 text-2xl font-bold">내 보고서</h2>
@@ -49,18 +52,18 @@ export default function MyReport() {
                 {format(new Date(item.createdAt), 'yyyy년 M월 d일 HH:mm')}
               </td>
               <td>
-                {typeOfEntrepreneur(item).type} {typeOfEntrepreneur(item).desc}
+                {typeOfEntrepreneur(item.answerValue).type} {typeOfEntrepreneur(item.answerValue).desc}
               </td>
-              <td>{typeOfEntrepreneur(item).descOfType}</td>
+              <td>{typeOfEntrepreneur(item.answerValue).descOfType}</td>
               <td>
-                {typeOfEntrepreneur(item).Dd + typeOfEntrepreneur(item).Ii >
-                typeOfEntrepreneur(item).Cc + typeOfEntrepreneur(item).Ee
+                {typeOfEntrepreneur(item.answerValue).Dd + typeOfEntrepreneur(item.answerValue).Ii >
+                typeOfEntrepreneur(item.answerValue).Cc + typeOfEntrepreneur(item.answerValue).Ee
                   ? '좌뇌'
                   : '우뇌'}{' '}
-                ({typeOfEntrepreneur(item).Dd + typeOfEntrepreneur(item).Ii},{' '}
-                {typeOfEntrepreneur(item).Cc + typeOfEntrepreneur(item).Ee})
+                ({typeOfEntrepreneur(item.answerValue).Dd + typeOfEntrepreneur(item.answerValue).Ii},{' '}
+                {typeOfEntrepreneur(item.answerValue).Cc + typeOfEntrepreneur(item.answerValue).Ee})
               </td>
-              <td>{typeOfEntrepreneur(item).mainAbility}</td>
+              <td>{typeOfEntrepreneur(item.answerValue).mainAbility}</td>
               <td>
                 <Link href={`/myreport/${item._id}`}>보고서 보러가기</Link>
               </td>

@@ -6,10 +6,9 @@ export async function POST(request: Request) {
   try {
     await connectDB();
     const body = await request.json();
-    const { email } = body;
-
-    const resultData = await EBTI.find({ email }).sort({ createdAt: -1 });
-    console.log(resultData);
+    const { userId } = body;
+    console.log('userId : ', userId)
+    const resultData = await EBTI.find({ userId }).sort({ createdAt: -1 });
     return NextResponse.json(resultData);
   } catch (error: any) {
     return NextResponse.error();

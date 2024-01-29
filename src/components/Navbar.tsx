@@ -6,7 +6,9 @@ import { usePathname } from 'next/navigation';
 
 const Navbar = () => {
   const pathname = usePathname();
-  console.log(pathname);
+
+  if (pathname.startsWith('/dashboard')) return null;
+
   return (
     <div className={`${pathname === '/' ? 'bg-[#FFE500]' : ''}`}>
       <div className="m-auto flex max-w-[1280px] items-start gap-10 ">

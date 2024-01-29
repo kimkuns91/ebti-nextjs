@@ -88,6 +88,10 @@ const answerValueSubSchema = new mongoose.Schema(
 
 const ebtiSchema = new mongoose.Schema(
   {
+    userId: {
+      type: String,
+      required: true,
+    },
     name: {
       type: String,
       required: true,
@@ -124,91 +128,14 @@ const ebtiSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    'H-01': {
-      type: Number,
-      required: true,
-    },
-    'H-02': {
-      type: Number,
-      required: true,
-    },
-    'H-03': {
-      type: Number,
-      required: true,
-    },
-    'H-04': {
-      type: Number,
-      required: true,
-    },
-    'D-01': {
-      type: Number,
-      required: true,
-    },
-    'D-02': {
-      type: Number,
-      required: true,
-    },
-    'D-03': {
-      type: Number,
-      required: true,
-    },
-    'D-04': {
-      type: Number,
-      required: true,
-    },
-    'I-01': {
-      type: Number,
-      required: true,
-    },
-    'I-02': {
-      type: Number,
-      required: true,
-    },
-    'I-03': {
-      type: Number,
-      required: true,
-    },
-    'I-04': {
-      type: Number,
-      required: true,
-    },
-    'C-01': {
-      type: Number,
-      required: true,
-    },
-    'C-02': {
-      type: Number,
-      required: true,
-    },
-    'C-03': {
-      type: Number,
-      required: true,
-    },
-    'C-04': {
-      type: Number,
-      required: true,
-    },
-    'E-01': {
-      type: Number,
-      required: true,
-    },
-    'E-02': {
-      type: Number,
-      required: true,
-    },
-    'E-03': {
-      type: Number,
-      required: true,
-    },
-    'E-04': {
-      type: Number,
+    answerValue: {
+      type: answerValueSubSchema,
       required: true,
     },
   },
   { timestamps: true }
 );
 
-// const EBTI = mongoose.model('EBTI', ebtiSchema);
 const EBTI = mongoose.models.EBTI || mongoose.model('EBTI', ebtiSchema);
 
 export default EBTI;

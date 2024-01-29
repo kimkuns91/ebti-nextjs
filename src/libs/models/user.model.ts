@@ -15,14 +15,16 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    profileImg: {
+      type: String,
+      default: '/images/noUser.webp',
+    },
     role: {
       type: String,
-      required: true,
       default: 'user',
     },
     provider: {
       type: String,
-      required: true,
       default: 'credentials',
     },
   },

@@ -8,6 +8,9 @@ import Profile from './Profile';
 const Header = () => {
   const pathname = usePathname();
   const { data: session } = useSession();
+
+  if (pathname.startsWith('/dashboard')) return null;
+  
   return (
     <header className={`${pathname === '/' ? 'bg-[#FFE500]' : ''}`}>
       <div className="m-auto flex h-16 w-full max-w-[1280px] items-center justify-between lg:h-20">

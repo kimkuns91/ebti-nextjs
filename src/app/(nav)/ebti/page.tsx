@@ -18,7 +18,6 @@ export default function EBTIPage() {
   );
 
   const [progress, setProgress] = useState<number>(0);
-  const [user, setUser] = useState({});
   const [userInfoValue, setUserInfoValue] = useState<{ [key: string]: string }>(
     {}
   );
@@ -80,12 +79,13 @@ export default function EBTIPage() {
         }
       }
       const response = await axios.post('/api/ebti', {
+        id: session?.user.id,
         userInfoValue,
         userJobValue,
-        answerValue,
+        answerValue : JSON.stringify(answerValue),
       });
-      if(response.status === 201) {
-        router.push('/ebti/complete')
+      if (response.status === 201) {
+        router.push('/ebti/complete');
       }
     }
     if (progress === 3) return;

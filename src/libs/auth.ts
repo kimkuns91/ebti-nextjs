@@ -25,6 +25,7 @@ export const authOptions: NextAuthOptions = {
           email: credentials?.email,
         }).select('+password');
         console.log(userFound);
+
         if (!userFound) throw new Error('Invalid credentials');
 
         const passwordMatch = await bcrypt.compare(
@@ -33,8 +34,6 @@ export const authOptions: NextAuthOptions = {
         );
 
         if (!passwordMatch) throw new Error('Invalid credentials');
-
-        console.log(userFound);
 
         return userFound;
       },
@@ -45,15 +44,32 @@ export const authOptions: NextAuthOptions = {
   },
   session: {
     strategy: 'jwt',
+    maxAge: 30 * 24 * 60 * 60,
+    updateAge: 24 * 60 * 60,
+  },
+  jwt: {
+    maxAge: 60 * 60 * 24 * 30,
   },
   callbacks: {
     async jwt({ token, user }) {
-      if (user) token.user = user;
+      if (user) {
+        token.id = user.id;
+        token.profileImg = user.profileImg;
+        token.provider = user.provider;
+        token.role = user.role;
+      }
+      // console.log('token :', token);
       return token;
     },
     async session({ session, token }) {
-      session.user = token.user as any;
+      if (session.user) {
+        session.user.id = token.id as string;
+        session.user.image = token.profileImg as string;
+        session.user.role = token.role as string;
+      }
+      // console.log('session :', session);
       return session;
     },
   },
+  secret: process.env.NEXTAUTH_SECRET,
 };
