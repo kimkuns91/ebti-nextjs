@@ -144,7 +144,7 @@ export const ebti_24 = [
       '새로운 것을 잘 찾고 서로 다른 것을 융합하는 혁신자형 행동을 자주 한다.\n자기 내면에 창조자 감각이 숨어 있고 균형자 감각이 부족하다.\n사람들에게는 새로운 것을 잘 찾는 발견자형으로 보인다.',
     collaborationType: 'ECDI',
     collaborationDesc: '긍정하는 균형자',
-    collaborationTip: '평가와 판단으로 좋음을 선별할 떄 도움을 받을 수 있음',
+    collaborationTip: '평가와 판단으로 좋음을 선별할 때 도움을 받을 수 있음',
   },
   {
     type: 'IDEC',
