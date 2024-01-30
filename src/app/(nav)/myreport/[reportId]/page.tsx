@@ -1,5 +1,6 @@
 'use client';
 
+import BarGraph from '@/components/BarGraph';
 import { pdfOptions } from '@/libs/pdfOptions';
 import { EBTI } from '@/types';
 import { detailsOfEBTI } from '@/utils/ebti/ebti';
@@ -84,7 +85,7 @@ export default function MyReportByReportId({
   } = detailsOfEBTI(data.answerValue);
 
   return (
-    <div ref={targetRef}>
+    <div ref={targetRef} className="py-32">
       {/* <div className="bg-[#7030a0] py-10">
         <div className="container">
           <h2 className="text-3xl font-bold text-white">
@@ -93,7 +94,7 @@ export default function MyReportByReportId({
         </div>
       </div> */}
       <div className="container py-8">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between rounded-full border-2 border-slate-700 bg-slate-200 px-12 py-6">
           <div className="flex items-center gap-4">
             <h3 className="text-3xl font-bold text-slate-800">
               <span className="text-[#7030a0]">{data.name}</span> 님의 기업가
@@ -116,6 +117,28 @@ export default function MyReportByReportId({
           >
             <FaFileDownload className="float-right cursor-pointer text-3xl font-bold text-slate-800" />
             <p className="text-sm text-slate-400">PDF 다운로드</p>
+          </div>
+        </div>
+        <div>
+          <div className="flex items-center justify-center gap-4">
+            <div className="flex size-10 items-center justify-center rounded-full bg-purple-700 text-white">
+              <p className="text-lg font-bold">H</p>
+            </div>
+            <p>행복감</p>
+            <div className="flex flex-1 flex-col gap-4">
+              <div className="flex items-center justify-center gap-4">
+                <p className="font-bold">자기 발견</p>
+                <div className="flex-1">
+                  <BarGraph color={'purple'} statistics={10} />
+                </div>
+              </div>
+              <div className="flex items-center justify-center gap-4">
+                <p className="font-bold">자기 인식</p>
+                <div className="flex-1">
+                  <BarGraph color={'purple'} statistics={10} />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <table className="mt-10 w-full table-auto border-t-2 border-black text-lg">
@@ -237,7 +260,7 @@ export default function MyReportByReportId({
           </tbody>
         </table>
         <div className="relative mt-10 grid grid-cols-2">
-          <div className="flex flex-col items-center justify-center gap-4 border py-24">
+          <div className="flex flex-col items-center justify-center gap-4 border py-28">
             <p className="text-4xl font-bold text-slate-400">
               요즘 내가 협업할 사람
             </p>
@@ -251,7 +274,7 @@ export default function MyReportByReportId({
             </div>
             <p className="text-3xl font-bold">{desc}</p>
           </div>
-          <div className="flex flex-col items-center justify-center gap-4 border py-24">
+          <div className="flex flex-col items-center justify-center gap-4 border py-28">
             <p className="text-4xl font-bold text-slate-400">
               요즘 나와 비슷한 사람
             </p>
@@ -265,7 +288,7 @@ export default function MyReportByReportId({
             </div>
             <p className="text-3xl font-bold">{desc}</p>
           </div>
-          <div className="flex flex-col items-center justify-center gap-4 border py-24">
+          <div className="flex flex-col items-center justify-center gap-4 border py-28">
             <p className="text-4xl font-bold text-slate-400">
               내 일을 도울 수 있는 사람
             </p>
@@ -279,7 +302,7 @@ export default function MyReportByReportId({
             </div>
             <p className="text-3xl font-bold">{desc}</p>
           </div>
-          <div className="flex flex-col items-center justify-center gap-4 border py-24">
+          <div className="flex flex-col items-center justify-center gap-4 border py-28">
             <p className="text-4xl font-bold text-slate-400">
               요즘 내가 선호하는 사람
             </p>
@@ -293,9 +316,8 @@ export default function MyReportByReportId({
             </div>
             <p className="text-3xl font-bold">{desc}</p>
           </div>
-
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-            <div className="flex flex-col items-center justify-center gap-4 rounded-md border border-black bg-white px-8 py-12">
+            <div className="flex flex-col items-center justify-center gap-4 rounded-md border border-slate-400 bg-white p-12">
               <div className="flex items-center gap-2">
                 {type.split('').map((char, index) => (
                   <ColoredCircle key={index} char={char} />
