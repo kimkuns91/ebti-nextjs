@@ -10,8 +10,13 @@ const Navbar = () => {
   if (pathname.startsWith('/dashboard')) return null;
 
   return (
-    <div className={`${pathname === '/' ? 'bg-[#FFE500]' : ''}`}>
-      <div className="m-auto flex max-w-[1280px] items-start gap-10 ">
+    <div
+      style={{
+        backgroundColor:
+          pathname === '/' ? '#FFE500' : pathname === '/labs' ? '#90D7FE' : 'inherit',
+      }}
+    >
+      <div className="m-auto flex max-w-[1280px] items-start gap-10">
         <h2 className="font-En text-2xl font-medium leading-10">
           Entreprenueurial
           <br />

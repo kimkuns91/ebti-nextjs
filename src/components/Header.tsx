@@ -10,9 +10,14 @@ const Header = () => {
   const { data: session } = useSession();
 
   if (pathname.startsWith('/dashboard')) return null;
-  
+
   return (
-    <header className={`${pathname === '/' ? 'bg-[#FFE500]' : ''}`}>
+    <header
+      style={{
+        backgroundColor:
+          pathname === '/' ? '#FFE500' : pathname === '/labs' ? '#90D7FE' : 'inherit',
+      }}
+    >
       <div className="m-auto flex h-16 w-full max-w-[1280px] items-center justify-between lg:h-20">
         <Link href="/">
           <h1 className="text-3xl font-medium text-black lg:text-4xl">

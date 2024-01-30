@@ -9,6 +9,7 @@ export async function GET(
   await connectDB();
   try {
     const { reportId } = params;
+    console.log('reportId : ', reportId)
     const report = await EBTI.findOne({ _id : reportId})
     return NextResponse.json(report);
   } catch (error: any) {

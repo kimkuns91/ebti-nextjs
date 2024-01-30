@@ -224,6 +224,7 @@ export const detailsOfEBTI = (answerValue: answerValueProps) => {
     totalScore,
     selfDiscovery,
     type,
+    desc,
     typeOfEntrepreneur,
     typeOfEntrepreneurBehavior,
     stageOfAgility,
