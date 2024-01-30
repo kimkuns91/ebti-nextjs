@@ -1,7 +1,5 @@
 'use client';
 
-import navConfig from '@/utils/navConfig';
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 const Navbar = () => {
@@ -26,7 +24,7 @@ const Navbar = () => {
           <br />
           Indicator
         </h2>
-        <div className="mt-2 flex w-full gap-10 border-t border-black pl-8 pt-4">
+        {/* <div className="mt-2 flex w-full gap-10 border-t border-black pl-8 pt-4">
           {navConfig.map((nav, index) => (
             <Link
               href={nav.path}
@@ -36,7 +34,7 @@ const Navbar = () => {
               {nav.title}
             </Link>
           ))}
-        </div>
+        </div> */}
       </div>
     </div>
   );

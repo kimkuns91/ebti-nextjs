@@ -7,10 +7,11 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 interface ProfileProps {
+  name: string;
   imageUrl: string;
 }
 
-const Profile = ({ imageUrl }: ProfileProps) => {
+const Profile = ({ name, imageUrl }: ProfileProps) => {
   const router = useRouter();
   const [bookmarksChecked, setBookmarksChecked] = useState(true);
   const [urlsChecked, setUrlsChecked] = useState(false);
@@ -36,9 +37,13 @@ const Profile = ({ imageUrl }: ProfileProps) => {
 
       <DropdownMenu.Portal>
         <DropdownMenu.Content
-          className="data-[side=top]:animate-slideDownAndFade data-[side=right]:animate-slideLeftAndFade data-[side=bottom]:animate-slideUpAndFade data-[side=left]:animate-slideRightAndFade min-w-[120px] rounded-md bg-white p-[5px] shadow-[0px_10px_38px_-10px_rgba(22,_23,_24,_0.35),_0px_10px_20px_-15px_rgba(22,_23,_24,_0.2)] will-change-[opacity,transform]"
+          className="data-[side=top]:animate-slideDownAndFade data-[side=right]:animate-slideLeftAndFade data-[side=bottom]:animate-slideUpAndFade data-[side=left]:animate-slideRightAndFade z-20 min-w-[120px] rounded-md bg-white p-[5px] shadow-[0px_10px_38px_-10px_rgba(22,_23,_24,_0.35),_0px_10px_20px_-15px_rgba(22,_23,_24,_0.2)] will-change-[opacity,transform]"
           sideOffset={10}
         >
+          <DropdownMenu.Label className="group relative flex h-[25px] cursor-pointer select-none items-center rounded-[3px] px-[5px] pl-[10px] text-[14px] font-bold leading-none outline-none">
+            {name} 님
+          </DropdownMenu.Label>
+          <DropdownMenu.Separator className="bg-violet6 m-[5px] h-[1px] border" />
           <DropdownMenu.Item
             onClick={() => {
               router.push('/mypage');
@@ -46,6 +51,14 @@ const Profile = ({ imageUrl }: ProfileProps) => {
             className="text-violet11 data-[disabled]:text-mauve8 data-[highlighted]:bg-violet9 data-[highlighted]:text-violet1 group relative flex h-[25px] cursor-pointer select-none items-center rounded-[3px] px-[5px] pl-[10px] text-[13px] leading-none outline-none hover:bg-slate-200 data-[disabled]:pointer-events-none"
           >
             마이페이지
+          </DropdownMenu.Item>
+          <DropdownMenu.Item
+            onClick={() => {
+              router.push('/mypage');
+            }}
+            className="text-violet11 data-[disabled]:text-mauve8 data-[highlighted]:bg-violet9 data-[highlighted]:text-violet1 group relative flex h-[25px] cursor-pointer select-none items-center rounded-[3px] px-[5px] pl-[10px] text-[13px] leading-none outline-none hover:bg-slate-200 data-[disabled]:pointer-events-none"
+          >
+            내 보고서
           </DropdownMenu.Item>
           <DropdownMenu.Item
             onClick={() => {

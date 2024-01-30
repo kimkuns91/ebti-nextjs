@@ -31,8 +31,12 @@ const LoginForm = () => {
   };
   return (
     <div className="container flex max-w-[440px] flex-col gap-4 py-20">
-      <h2 className="text-lg font-bold">로그인</h2>
-      <div>
+      <Image src={'/images/logo.svg'} alt="logo" width={130} height={0} />
+      <h2 className="mt-4 text-lg font-bold leading-8">
+        EBTI는 섬세한 기업가 유형 분석으로 <br /> 여러분의 삶에 깊이를 더하고,
+        매일을 더욱 풍요롭게 만드는 든든한 파트너입니다.
+      </h2>
+      <div className="mt-8">
         <button
           className="flex w-full flex-row items-center justify-center gap-3 rounded-md bg-[#FEE500] px-5 py-3 font-medium"
           onClick={() => signIn('kakao', { redirect: true, callbackUrl: '/' })}
@@ -56,7 +60,7 @@ const LoginForm = () => {
         <Input ref={emailRef} type="text" name="email" />
         <label htmlFor="password">비밀번호</label>
         <Input ref={passwordRef} type="password" name="password" />
-        <Button type="submit">로그인</Button>
+        <Button className='bg-[#00A1E9]' type="submit">로그인</Button>
       </form>
       <Button
         className="bg-[#f2f2f2] text-[#5e5e5e] hover:bg-[#777]"

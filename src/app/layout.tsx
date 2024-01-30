@@ -1,5 +1,4 @@
 import Header from '@/components/Header';
-import Navbar from '@/components/Navbar';
 import SessionProvider from '@/components/SessionProvider';
 import { cn } from '@/utils/style';
 import type { Metadata } from 'next';
@@ -42,7 +41,7 @@ export default async function RootLayout({
         <SessionProvider session={session}>
           <div className="flex flex-1 flex-col">
             <Header />
-            <Navbar />
+            {/* <Navbar /> */}
             <div className="flex flex-1 flex-col overflow-y-auto">
               <main className="flex flex-1 flex-col">{children}</main>
               <Footer />

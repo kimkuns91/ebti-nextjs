@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function Collabo() {
   return (
-    <div className="mt-[-180px] max-w-[1920px]">
+    <div className="mt-[-50px] max-w-[1920px]">
       <Image
         src={'/images/EBTI-collabo.png'}
         alt="EBTI-collabo"
