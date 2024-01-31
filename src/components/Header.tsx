@@ -57,7 +57,6 @@ const Header = () => {
           <div className="flex items-center justify-center gap-6">
             {session && session.user ? (
               <>
-                {/* <p>{session.user.name} 님</p> */}
                 <Link
                   href={'/myreport'}
                   className="text-lg font-semibold hover:opacity-70"
@@ -65,6 +64,7 @@ const Header = () => {
                   내 보고서
                 </Link>
                 <Profile
+                  role={session.user.role ?? ''}
                   name={session.user.name ?? ''}
                   imageUrl={session.user.image ?? '/images/noUser.webp'}
                 />
@@ -87,17 +87,6 @@ const Header = () => {
             )}
           </div>
         </div>
-        {/* <div className="flex w-full gap-10">
-          {navConfig.map((nav, index) => (
-            <Link
-              href={nav.path}
-              key={index}
-              className={`font-En ${pathname === nav.path ? 'font-bold' : ''}`}
-            >
-              {nav.title}
-            </Link>
-          ))}
-        </div> */}
       </div>
     </header>
   );

@@ -47,9 +47,9 @@ export const authOptions: NextAuthOptions = {
     maxAge: 30 * 24 * 60 * 60,
     updateAge: 24 * 60 * 60,
   },
-  jwt: {
-    maxAge: 60 * 60 * 24 * 30,
-  },
+  // jwt: {
+  //   maxAge: 60 * 60 * 24 * 30,
+  // },
   callbacks: {
     async signIn({ user, profile }) {
       if (profile) {
@@ -75,7 +75,6 @@ export const authOptions: NextAuthOptions = {
         session.user.image = token.profileImg as string;
         session.user.role = token.role as string;
       }
-      // console.log('session :', session);
       return session;
     },
   },

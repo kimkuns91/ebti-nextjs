@@ -7,11 +7,12 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 interface ProfileProps {
+  role: string;
   name: string;
   imageUrl: string;
 }
 
-const Profile = ({ name, imageUrl }: ProfileProps) => {
+const Profile = ({ role, name, imageUrl }: ProfileProps) => {
   const router = useRouter();
   const [bookmarksChecked, setBookmarksChecked] = useState(true);
   const [urlsChecked, setUrlsChecked] = useState(false);
@@ -44,6 +45,16 @@ const Profile = ({ name, imageUrl }: ProfileProps) => {
             {name} 님
           </DropdownMenu.Label>
           <DropdownMenu.Separator className="bg-violet6 m-[5px] h-[1px] border" />
+          {role === 'admin' && (
+            <DropdownMenu.Item
+              onClick={() => {
+                router.push('/dashboard');
+              }}
+              className="text-violet11 data-[disabled]:text-mauve8 data-[highlighted]:bg-violet9 data-[highlighted]:text-violet1 group relative flex h-[25px] cursor-pointer select-none items-center rounded-[3px] px-[5px] pl-[10px] text-[13px] leading-none outline-none hover:bg-slate-200 data-[disabled]:pointer-events-none"
+            >
+              대시보드
+            </DropdownMenu.Item>
+          )}
           <DropdownMenu.Item
             onClick={() => {
               router.push('/mypage');

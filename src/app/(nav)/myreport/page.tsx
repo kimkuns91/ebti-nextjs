@@ -5,7 +5,6 @@ import { typeOfEntrepreneur } from '@/utils/ebti/ebti';
 import axios from 'axios';
 import { format } from 'date-fns';
 import { useSession } from 'next-auth/react';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
@@ -32,40 +31,57 @@ export default function MyReport() {
   }, [session, status]);
 
   return (
-    <div className="container py-20">
+    <div className="container py-20 pt-60">
       <h2 className="mb-8 text-2xl font-bold">내 보고서</h2>
-      <table className="w-full table-auto">
-        <thead className="border-b py-8 text-left">
-          <tr>
-            <th>검사 일시</th>
-            <th>EBTI 유형</th>
-            <th>기업가 유형</th>
-            <th>사고 유형</th>
-            <th>핵심 역량</th>
-            <th>보고서</th>
+      <table className="w-full table-auto overflow-hidden rounded-md border">
+        <thead className="border-b py-8 text-center">
+          <tr className="bg-slate-100">
+            <th className="border-r px-4 py-2">검사 일시</th>
+            <th className="border-r px-4 py-2">EBTI 유형</th>
+            <th className="border-r px-4 py-2">기업가 유형</th>
+            <th className="border-r px-4 py-2">사고 유형</th>
+            <th className="border-r px-4 py-2">핵심 역량</th>
+            <th className="border-r px-4 py-2">보고서</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="border-b py-8 text-center">
           {data.map((item) => (
             <tr key={item._id}>
-              <td>
+              <td className="border px-4 py-2">
                 {format(new Date(item.createdAt), 'yyyy년 M월 d일 HH:mm')}
               </td>
-              <td>
-                {typeOfEntrepreneur(item.answerValue).type} {typeOfEntrepreneur(item.answerValue).desc}
+              <td className="border px-4 py-2">
+                {typeOfEntrepreneur(item.answerValue).type}{' '}
+                {typeOfEntrepreneur(item.answerValue).desc}
               </td>
-              <td>{typeOfEntrepreneur(item.answerValue).descOfType}</td>
-              <td>
-                {typeOfEntrepreneur(item.answerValue).Dd + typeOfEntrepreneur(item.answerValue).Ii >
-                typeOfEntrepreneur(item.answerValue).Cc + typeOfEntrepreneur(item.answerValue).Ee
+              <td className="border px-4 py-2">
+                {typeOfEntrepreneur(item.answerValue).descOfType}
+              </td>
+              <td className="border px-4 py-2">
+                {typeOfEntrepreneur(item.answerValue).Dd +
+                  typeOfEntrepreneur(item.answerValue).Ii >
+                typeOfEntrepreneur(item.answerValue).Cc +
+                  typeOfEntrepreneur(item.answerValue).Ee
                   ? '좌뇌'
                   : '우뇌'}{' '}
-                ({typeOfEntrepreneur(item.answerValue).Dd + typeOfEntrepreneur(item.answerValue).Ii},{' '}
-                {typeOfEntrepreneur(item.answerValue).Cc + typeOfEntrepreneur(item.answerValue).Ee})
+                (
+                {typeOfEntrepreneur(item.answerValue).Dd +
+                  typeOfEntrepreneur(item.answerValue).Ii}
+                ,{' '}
+                {typeOfEntrepreneur(item.answerValue).Cc +
+                  typeOfEntrepreneur(item.answerValue).Ee}
+                )
               </td>
-              <td>{typeOfEntrepreneur(item.answerValue).mainAbility}</td>
-              <td>
-                <Link href={`/myreport/${item._id}`}>보고서 보러가기</Link>
+              <td className="border px-4 py-2">
+                {typeOfEntrepreneur(item.answerValue).mainAbility}
+              </td>
+              <td
+                onClick={() => {
+                  router.push(`/myreport/${item._id}`);
+                }}
+                className="cursor-pointer border px-4 py-2 text-center font-semibold text-[#00A1E9] hover:opacity-70"
+              >
+                보고서 보러가기
               </td>
             </tr>
           ))}

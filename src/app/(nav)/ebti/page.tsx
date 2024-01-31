@@ -1,5 +1,6 @@
 'use client';
 
+import CouponInputForm from '@/components/CouponInputForm';
 import EBTI from '@/components/EBTI';
 import UserInfo from '@/components/UserInfo';
 import UserJob from '@/components/UserJob';
@@ -16,11 +17,12 @@ export default function EBTIPage() {
   const questionRefs = useRef<RefObject<HTMLDivElement>[]>(
     questions.map(() => createRef())
   );
-
+  const [coupon, setCoupon] = useState<string>('');
   const [progress, setProgress] = useState<number>(0);
   const [userInfoValue, setUserInfoValue] = useState<{ [key: string]: string }>(
     {}
   );
+  console.log(userInfoValue)
 
   const [userJobValue, setUserJobValue] = useState<{ [key: string]: string }>(
     {}
@@ -79,33 +81,47 @@ export default function EBTIPage() {
         }
       }
       const response = await axios.post('/api/ebti', {
+        coupon,
         id: session?.user.id,
         userInfoValue,
         userJobValue,
-        answerValue : JSON.stringify(answerValue),
+        answerValue: JSON.stringify(answerValue),
       });
       if (response.status === 201) {
         router.push('/ebti/complete');
       }
     }
-    if (progress === 3) return;
   };
 
   useEffect(() => {
     if (session && status === 'authenticated') {
-      setUserInfoValue({
-        ...userInfoValue,
-        name: session?.user?.name ?? '',
-        email: session?.user?.email ?? '',
-      });
+      if (session.user.id) {
+        (async () => {
+          const response = await axios.post('/api/auth/userinfo', {
+            userId: session.user.id,
+          });
+          if (response.status === 201) {
+            setUserInfoValue(response.data.setUserInfoValue);
+            setUserJobValue(response.data.setUserJobValue);
+          } else {
+            setUserInfoValue({
+              ...userInfoValue,
+              name: session?.user?.name ?? '',
+              email: session?.user?.email ?? '',
+            });
+          }
+        })();
+      }
     } else {
       alert('로그인이 필요한 서비스입니다.');
       router.push('/login');
     }
   }, []);
 
+  if (!coupon) return <CouponInputForm setCoupon={setCoupon} />;
+
   return (
-    <div className="container flex flex-col items-center justify-center gap-10 py-10">
+    <div className="container flex flex-col items-center justify-center gap-10 py-10 pt-60">
       {progress === 0 && (
         <UserInfo
           userInfoValue={userInfoValue}

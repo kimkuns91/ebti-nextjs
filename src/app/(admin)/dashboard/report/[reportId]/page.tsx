@@ -52,6 +52,7 @@ export default function MyReportByReportId({
   const router = useRouter();
   const [data, setData] = useState<EBTI | null>(null);
 
+  console.log(data)
   useEffect(() => {
     (async () => {
       const data = await axios.get(`/api/myreport/${params.reportId}`);
@@ -65,7 +66,6 @@ export default function MyReportByReportId({
   if (!data) return null;
 
   const {
-    categoryScores,
     totalScore,
     selfDiscovery,
     type,
@@ -79,7 +79,6 @@ export default function MyReportByReportId({
     mainAbility,
     competencyDevelopmentDirection,
     collaborationType,
-    collaborationTypeOfEntrepreneurBehavior,
     weakAbility,
     internalTypeOfEntrepreneur,
     diagnosticResults,
@@ -88,6 +87,13 @@ export default function MyReportByReportId({
 
   return (
     <div ref={targetRef} className="py-32">
+      {/* <div className="bg-[#7030a0] py-10">
+        <div className="container">
+          <h2 className="text-3xl font-bold text-white">
+            EBTI 기업가 행동유형 검사
+          </h2>
+        </div>
+      </div> */}
       <div className="container py-8">
         <div className="flex items-center justify-between rounded-full border-2 border-slate-700 bg-slate-200 px-12 py-6">
           <div className="flex items-center gap-4">
@@ -95,17 +101,13 @@ export default function MyReportByReportId({
               <span className="text-[#7030a0]">{data.name}</span> 님의 기업가
               행동 유형은
             </h3>
-            <h3 className="text-3xl font-bold text-slate-800">
-              {'"'}
-              {desc}
-            </h3>
             <div className="flex items-center gap-2">
               {type.split('').map((char, index) => (
                 <ColoredCircle key={index} char={char} />
               ))}
             </div>
             <h3 className="mr-4 text-3xl font-bold text-slate-800">
-              형{'"'} 입니다.
+              형 입니다.
             </h3>
           </div>
           <div
@@ -140,7 +142,7 @@ export default function MyReportByReportId({
                 직업 / 경력 / 전공
               </td>
               <td className="border pl-4 font-bold text-slate-500" colSpan={3}>
-                {data.job} / {data.career} / {data.major ? data.major : '-'}
+                {data.job} / {data.career} / {data.major}
               </td>
             </tr>
             <tr>
@@ -182,7 +184,7 @@ export default function MyReportByReportId({
               </td>
               <td className="border py-4 text-center font-bold">협업 유형</td>
               <td className="border pl-4 font-bold text-slate-500">
-                {JSON.parse(collaborationTypeOfEntrepreneurBehavior)}
+                {collaborationType}
               </td>
             </tr>
             <tr>
@@ -232,192 +234,55 @@ export default function MyReportByReportId({
                 className="border py-8 pl-4 font-bold leading-8 text-slate-500"
                 colSpan={3}
               >
-                {JSON.parse(generalOpinion)}
+                {generalOpinion}
               </td>
             </tr>
           </tbody>
         </table>
         <div className="my-20 flex gap-4">
-          <div className="flex flex-[1] flex-col gap-8">
-            <div className="flex items-center justify-center gap-8">
-              <div className="flex flex-[1] items-center gap-4">
-                <div className="flex size-10 items-center justify-center rounded-full bg-[#7030a0] text-white">
-                  <p className="text-lg font-bold">H</p>
-                </div>
-                <p>행복감</p>
+          <div className="flex flex-1 flex-col gap-8">
+            <div className="flex items-center justify-center gap-4">
+              <div className="flex size-10 items-center justify-center rounded-full bg-purple-700 text-white">
+                <p className="text-lg font-bold">H</p>
               </div>
-              <div className="flex flex-[3.5] flex-col gap-4">
+              <p>행복감</p>
+              <div className="flex flex-1 flex-col gap-4">
                 <div className="flex items-center justify-center gap-4">
-                  <p>자기발견</p>
+                  <p className="font-bold">자기 발견</p>
                   <div className="flex-1">
-                    <BarGraph
-                      color={'#7030a0'}
-                      statistics={categoryScores.발견 / 2}
-                    />
+                    <BarGraph color={'purple'} statistics={10} />
                   </div>
                 </div>
                 <div className="flex items-center justify-center gap-4">
-                  <p>자기인식</p>
+                  <p className="font-bold">자기 인식</p>
                   <div className="flex-1">
-                    <BarGraph
-                      color={'#7030a0'}
-                      statistics={categoryScores.인식 / 2}
-                    />
+                    <BarGraph color={'purple'} statistics={10} />
                   </div>
                 </div>
               </div>
             </div>
-
-            <div className="flex items-center justify-center gap-8">
-              <div className="flex flex-[1] items-center gap-4">
-                <div className="flex size-10 items-center justify-center rounded-full bg-[#00B0F0] text-white">
-                  <p className="text-lg font-bold">D</p>
-                </div>
-                <p>발견자형</p>
+            <div className="flex items-center justify-center gap-4">
+              <div className="flex size-10 items-center justify-center rounded-full bg-purple-700 text-white">
+                <p className="text-lg font-bold">H</p>
               </div>
-              <div className="flex flex-[3.5] flex-col gap-4">
+              <p>행복감</p>
+              <div className="flex flex-1 flex-col gap-4">
                 <div className="flex items-center justify-center gap-4">
-                  <p>탐색하기</p>
+                  <p className="font-bold">자기 발견</p>
                   <div className="flex-1">
-                    <BarGraph
-                      color={'#00B0F0'}
-                      statistics={categoryScores.탐색 / 2}
-                    />
+                    <BarGraph color={'purple'} statistics={10} />
                   </div>
                 </div>
                 <div className="flex items-center justify-center gap-4">
-                  <p>검색하기</p>
+                  <p className="font-bold">자기 인식</p>
                   <div className="flex-1">
-                    <BarGraph
-                      color={'#00B0F0'}
-                      statistics={categoryScores.검색 / 2}
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex items-center justify-center gap-8">
-              <div className="flex flex-[1] items-center gap-4">
-                <div className="flex size-10 items-center justify-center rounded-full bg-[#FFC100] text-white">
-                  <p className="text-lg font-bold">D</p>
-                </div>
-                <p>혁신자형</p>
-              </div>
-              <div className="flex flex-[3.5] flex-col gap-4">
-                <div className="flex items-center justify-center gap-4">
-                  <p>연결하기</p>
-                  <div className="flex-1">
-                    <BarGraph
-                      color={'#FFC100'}
-                      statistics={categoryScores.연결 / 2}
-                    />
-                  </div>
-                </div>
-                <div className="flex items-center justify-center gap-4">
-                  <p>결합하기</p>
-                  <div className="flex-1">
-                    <BarGraph
-                      color={'#FFC100'}
-                      statistics={categoryScores.결합 / 2}
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex items-center justify-center gap-8">
-              <div className="flex flex-[1] items-center gap-4">
-                <div className="flex size-10 items-center justify-center rounded-full bg-[#FF0000] text-white">
-                  <p className="text-lg font-bold">D</p>
-                </div>
-                <p>창조자형</p>
-              </div>
-              <div className="flex flex-[3.5] flex-col gap-4">
-                <div className="flex items-center justify-center gap-4">
-                  <p>열정내기</p>
-                  <div className="flex-1">
-                    <BarGraph
-                      color={'#FF0000'}
-                      statistics={categoryScores.열정 / 2}
-                    />
-                  </div>
-                </div>
-                <div className="flex items-center justify-center gap-4">
-                  <p>용기내기</p>
-                  <div className="flex-1">
-                    <BarGraph
-                      color={'#FF0000'}
-                      statistics={categoryScores.용기 / 2}
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex items-center justify-center gap-8">
-              <div className="flex flex-[1] items-center gap-4">
-                <div className="flex size-10 items-center justify-center rounded-full bg-[#92D051] text-white">
-                  <p className="text-lg font-bold">D</p>
-                </div>
-                <p>균형자형</p>
-              </div>
-              <div className="flex flex-[3.5] flex-col gap-4">
-                <div className="flex items-center justify-center gap-4">
-                  <p>평가하기</p>
-                  <div className="flex-1">
-                    <BarGraph
-                      color={'#92D051'}
-                      statistics={categoryScores.평가 / 2}
-                    />
-                  </div>
-                </div>
-                <div className="flex items-center justify-center gap-4">
-                  <p>판단하기</p>
-                  <div className="flex-1">
-                    <BarGraph
-                      color={'#92D051'}
-                      statistics={categoryScores.판단 / 2}
-                    />
+                    <BarGraph color={'purple'} statistics={10} />
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div className="ml-8 grid flex-[1] grid-cols-2 gap-4">
-            <div className="relative box-border rounded-[30px] bg-[#ffe09b]">
-              <p className="absolute left-4 top-4">
-                {(categoryScores.탐색 * categoryScores.연결) / 4}%
-              </p>
-              <div className="absolute bottom-0 right-0 flex size-1/2 items-center justify-center rounded-[20px] bg-[#ffc637]">
-                {(categoryScores.검색 * categoryScores.결합) / 4}%
-              </div>
-            </div>
-            <div className="relative rounded-[30px] bg-[#ff9e95]">
-              <p className="absolute right-4 top-4">
-                {(categoryScores.열정 * categoryScores.연결) / 4}%
-              </p>
-              <div className="absolute bottom-0 left-0 flex size-1/2 items-center justify-center rounded-[20px] bg-[#ff392f]">
-                {(categoryScores.결합 * categoryScores.용기) / 4}%
-              </div>
-            </div>
-            <div className="relative rounded-[30px] bg-[#9ed9f8]">
-              <p className="absolute bottom-4 left-4">
-                {(categoryScores.탐색 * categoryScores.평가) / 4}%
-              </p>
-              <div className="absolute right-0 top-0 flex size-1/2 items-center justify-center rounded-[20px] bg-[#5bb8f9]">
-                {(categoryScores.검색 * categoryScores.판단) / 4}%
-              </div>
-            </div>
-            <div className="relative rounded-[30px] bg-[#cbe8ae]">
-              <p className="absolute bottom-4 right-4">
-                {(categoryScores.평가 * categoryScores.열정) / 4}%
-              </p>
-              <div className="absolute left-0 top-0 flex size-1/2 items-center justify-center rounded-[20px] bg-[#9ed565]">
-                {(categoryScores.판단 * categoryScores.용기) / 4}%
-              </div>
-            </div>
-          </div>
+          <div className="flex-1"></div>
         </div>
         <div className="relative mt-10 grid grid-cols-2">
           <div className="flex flex-col items-center justify-center gap-4 border py-28">

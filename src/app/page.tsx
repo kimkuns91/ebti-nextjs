@@ -4,7 +4,7 @@ import Link from 'next/link';
 export default function Home() {
   return (
     <>
-      <div className="bg-[#FFE500] py-40">
+      <div className="bg-[#FFE500] pb-24 pt-40">
         <div className="container flex flex-row items-end justify-center">
           <div className="flex-1">
             <Image

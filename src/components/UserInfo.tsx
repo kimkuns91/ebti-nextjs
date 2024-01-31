@@ -81,6 +81,17 @@ const UserInfo = ({ userInfoValue, setUserInfoValue }: UserInfoProps) => {
           ))}
         </div>
       </div>
+      <div className="flex flex-col gap-6">
+        <label className="text-lg font-semibold" htmlFor="major">
+          전공
+        </label>
+        <Input
+          id="major"
+          name="major"
+          value={userInfoValue['major'] || ''}
+          onChange={handleValue}
+        />
+      </div>
     </div>
   );
 };

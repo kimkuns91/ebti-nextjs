@@ -3,10 +3,36 @@ export type SignInWithCredentialsParams = {
   password: string;
 };
 
+export type User = {
+  _id: string;
+  email: string;
+  name: string;
+  password: string;
+  profileImg: string;
+  role: string;
+  provider: string;
+  createdAt: string;
+};
+
 export type UserInfo = {
+  _id: string;
   name: string;
   email: string;
   password: string;
+};
+
+export type Coupon = {
+  _id: string;
+  category: string;
+  coupon: string;
+  type: string;
+  count?: number;
+  owner?: string;
+  activated: boolean;
+  used?: boolean;
+  expiredAt: string;
+  createdAt: string;
+  updatedAt: string;
 };
 
 export type EBTI = {
@@ -16,6 +42,7 @@ export type EBTI = {
   email: string;
   sns: string;
   education: string;
+  major: string;
   job: string;
   jobSatisfaction: string;
   task: string;

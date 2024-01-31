@@ -112,6 +112,10 @@ const ebtiSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    major: {
+      type: String,
+      required: true,
+    },
     job: {
       type: String,
       required: true,

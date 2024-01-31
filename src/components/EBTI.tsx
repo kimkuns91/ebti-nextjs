@@ -2,7 +2,7 @@
 
 import AnswerOptions from '@/components/AnswerOptions';
 import { answers, questions } from '@/configs/questions';
-import { RefObject } from 'react';
+import { RefObject, useEffect } from 'react';
 
 type EBTIProps = {
   scrollToQuestion: (questionIndex: number) => void;
@@ -39,7 +39,11 @@ const EBTI = ({
       scrollToQuestion(nextQuestionIndex);
     }
   };
-
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   return (
     <div className="flex w-full flex-col">
       {questions.map((question, index) => (
