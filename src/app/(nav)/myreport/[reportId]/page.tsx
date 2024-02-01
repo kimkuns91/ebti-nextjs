@@ -84,11 +84,19 @@ export default function MyReportByReportId({
     internalTypeOfEntrepreneur,
     diagnosticResults,
     generalOpinion,
+    recentCollaborator,
+    recentCollaboratorDesc,
+    recentSimilarPerson,
+    recentSimilarPersonDesc,
+    whoCanHelpMe,
+    whoCanHelpMeDesc,
+    whoIPrefer,
+    whoIPreferDesc,
   } = detailsOfEBTI(data.answerValue);
 
   return (
-    <div ref={targetRef} className="py-32">
-      <div className="container py-8">
+    <div className="py-32">
+      <div ref={targetRef} className="container py-8">
         <div className="flex items-center justify-between rounded-full border-2 border-slate-700 bg-slate-200 px-12 py-6">
           <div className="flex items-center gap-4">
             <h3 className="text-3xl font-bold text-slate-800">
@@ -252,7 +260,7 @@ export default function MyReportByReportId({
                   <div className="flex-1">
                     <BarGraph
                       color={'#7030a0'}
-                      statistics={categoryScores.발견 / 2}
+                      statistics={Math.round(categoryScores.발견)}
                     />
                   </div>
                 </div>
@@ -261,7 +269,7 @@ export default function MyReportByReportId({
                   <div className="flex-1">
                     <BarGraph
                       color={'#7030a0'}
-                      statistics={categoryScores.인식 / 2}
+                      statistics={Math.round(categoryScores.인식)}
                     />
                   </div>
                 </div>
@@ -281,7 +289,7 @@ export default function MyReportByReportId({
                   <div className="flex-1">
                     <BarGraph
                       color={'#00B0F0'}
-                      statistics={categoryScores.탐색 / 2}
+                      statistics={Math.round(categoryScores.탐색)}
                     />
                   </div>
                 </div>
@@ -290,7 +298,7 @@ export default function MyReportByReportId({
                   <div className="flex-1">
                     <BarGraph
                       color={'#00B0F0'}
-                      statistics={categoryScores.검색 / 2}
+                      statistics={Math.round(categoryScores.검색)}
                     />
                   </div>
                 </div>
@@ -310,7 +318,7 @@ export default function MyReportByReportId({
                   <div className="flex-1">
                     <BarGraph
                       color={'#FFC100'}
-                      statistics={categoryScores.연결 / 2}
+                      statistics={Math.round(categoryScores.연결)}
                     />
                   </div>
                 </div>
@@ -319,7 +327,7 @@ export default function MyReportByReportId({
                   <div className="flex-1">
                     <BarGraph
                       color={'#FFC100'}
-                      statistics={categoryScores.결합 / 2}
+                      statistics={Math.round(categoryScores.결합)}
                     />
                   </div>
                 </div>
@@ -339,7 +347,7 @@ export default function MyReportByReportId({
                   <div className="flex-1">
                     <BarGraph
                       color={'#FF0000'}
-                      statistics={categoryScores.열정 / 2}
+                      statistics={Math.round(categoryScores.열정)}
                     />
                   </div>
                 </div>
@@ -348,7 +356,7 @@ export default function MyReportByReportId({
                   <div className="flex-1">
                     <BarGraph
                       color={'#FF0000'}
-                      statistics={categoryScores.용기 / 2}
+                      statistics={Math.round(categoryScores.용기)}
                     />
                   </div>
                 </div>
@@ -368,7 +376,7 @@ export default function MyReportByReportId({
                   <div className="flex-1">
                     <BarGraph
                       color={'#92D051'}
-                      statistics={categoryScores.평가 / 2}
+                      statistics={Math.round(categoryScores.평가)}
                     />
                   </div>
                 </div>
@@ -377,7 +385,7 @@ export default function MyReportByReportId({
                   <div className="flex-1">
                     <BarGraph
                       color={'#92D051'}
-                      statistics={categoryScores.판단 / 2}
+                      statistics={Math.round(categoryScores.판단)}
                     />
                   </div>
                 </div>
@@ -387,34 +395,34 @@ export default function MyReportByReportId({
           <div className="ml-8 grid flex-[1] grid-cols-2 gap-4">
             <div className="relative box-border rounded-[30px] bg-[#ffe09b]">
               <p className="absolute left-4 top-4">
-                {(categoryScores.탐색 * categoryScores.연결) / 4}%
+                {(categoryScores.탐색 * categoryScores.연결)}%
               </p>
               <div className="absolute bottom-0 right-0 flex size-1/2 items-center justify-center rounded-[20px] bg-[#ffc637]">
-                {(categoryScores.검색 * categoryScores.결합) / 4}%
+                {(categoryScores.검색 * categoryScores.결합)}%
               </div>
             </div>
             <div className="relative rounded-[30px] bg-[#ff9e95]">
               <p className="absolute right-4 top-4">
-                {(categoryScores.열정 * categoryScores.연결) / 4}%
+                {(categoryScores.열정 * categoryScores.연결)}%
               </p>
               <div className="absolute bottom-0 left-0 flex size-1/2 items-center justify-center rounded-[20px] bg-[#ff392f]">
-                {(categoryScores.결합 * categoryScores.용기) / 4}%
+                {(categoryScores.결합 * categoryScores.용기)}%
               </div>
             </div>
             <div className="relative rounded-[30px] bg-[#9ed9f8]">
               <p className="absolute bottom-4 left-4">
-                {(categoryScores.탐색 * categoryScores.평가) / 4}%
+                {(categoryScores.탐색 * categoryScores.평가)}%
               </p>
               <div className="absolute right-0 top-0 flex size-1/2 items-center justify-center rounded-[20px] bg-[#5bb8f9]">
-                {(categoryScores.검색 * categoryScores.판단) / 4}%
+                {(categoryScores.검색 * categoryScores.판단)}%
               </div>
             </div>
             <div className="relative rounded-[30px] bg-[#cbe8ae]">
               <p className="absolute bottom-4 right-4">
-                {(categoryScores.평가 * categoryScores.열정) / 4}%
+                {(categoryScores.평가 * categoryScores.열정)}%
               </p>
               <div className="absolute left-0 top-0 flex size-1/2 items-center justify-center rounded-[20px] bg-[#9ed565]">
-                {(categoryScores.판단 * categoryScores.용기) / 4}%
+                {(categoryScores.판단 * categoryScores.용기)}%
               </div>
             </div>
           </div>
@@ -428,11 +436,11 @@ export default function MyReportByReportId({
               {'('}혁신하게 만드는 사람, 도움을 줘야 하는 사람{')'}
             </p>
             <div className="flex items-center gap-2">
-              {type.split('').map((char, index) => (
+              {recentCollaborator.split('').map((char, index) => (
                 <ColoredCircle key={index} char={char} />
               ))}
             </div>
-            <p className="text-3xl font-bold">{desc}</p>
+            <p className="text-3xl font-bold">{recentCollaboratorDesc}</p>
           </div>
           <div className="flex flex-col items-center justify-center gap-4 border py-28">
             <p className="text-4xl font-bold text-slate-400">
@@ -442,11 +450,11 @@ export default function MyReportByReportId({
               {'('}말하지 않아도 알 것 같은 사람{')'}
             </p>
             <div className="flex items-center gap-2">
-              {type.split('').map((char, index) => (
+              {recentSimilarPerson.split('').map((char, index) => (
                 <ColoredCircle key={index} char={char} />
               ))}
             </div>
-            <p className="text-3xl font-bold">{desc}</p>
+            <p className="text-3xl font-bold">{recentSimilarPersonDesc}</p>
           </div>
           <div className="flex flex-col items-center justify-center gap-4 border py-28">
             <p className="text-4xl font-bold text-slate-400">
@@ -456,11 +464,11 @@ export default function MyReportByReportId({
               {'('}말없이 도와주는 사람{')'}
             </p>
             <div className="flex items-center gap-2">
-              {type.split('').map((char, index) => (
+              {whoCanHelpMe.split('').map((char, index) => (
                 <ColoredCircle key={index} char={char} />
               ))}
             </div>
-            <p className="text-3xl font-bold">{desc}</p>
+            <p className="text-3xl font-bold">{whoCanHelpMeDesc}</p>
           </div>
           <div className="flex flex-col items-center justify-center gap-4 border py-28">
             <p className="text-4xl font-bold text-slate-400">
@@ -470,7 +478,7 @@ export default function MyReportByReportId({
               {'('}대화가 잘 통하는 사람{')'}
             </p>
             <div className="flex items-center gap-2">
-              {type.split('').map((char, index) => (
+              {whoIPrefer.split('').map((char, index) => (
                 <ColoredCircle key={index} char={char} />
               ))}
             </div>
@@ -483,7 +491,7 @@ export default function MyReportByReportId({
                   <ColoredCircle key={index} char={char} />
                 ))}
               </div>
-              <p className="text-3xl font-bold">{desc}</p>
+              <p className="text-3xl font-bold">{whoIPreferDesc}</p>
             </div>
           </div>
         </div>

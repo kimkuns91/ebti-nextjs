@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function Seoul() {
   return (
-    <div className="absolute top-0 max-w-[1920px]">
+    <div className="absolute top-0 mx-auto max-w-[1920px] ">
       <Image
         src={'/images/EBTI-seoul.png'}
         alt="EBTI-collabo"

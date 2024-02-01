@@ -89,7 +89,6 @@ export const typeOfEntrepreneur = (answerValue: answerValueProps) => {
     weakAbility,
   };
 };
-
 export const detailsOfEBTI = (answerValue: answerValueProps) => {
   const scores = {
     D:
@@ -114,39 +113,63 @@ export const detailsOfEBTI = (answerValue: answerValueProps) => {
       answerValue['E-04'],
   };
   const categoryScores = {
-    발견: answerValue['H-01'] + answerValue['H-02'],
-    인식: answerValue['H-03'] + answerValue['H-04'],
-    탐색: answerValue['D-01'] + answerValue['D-02'],
-    검색: answerValue['D-03'] + answerValue['D-04'],
-    연결: answerValue['I-01'] + answerValue['I-02'],
-    결합: answerValue['I-03'] + answerValue['I-04'],
-    열정: answerValue['C-01'] + answerValue['C-02'],
-    용기: answerValue['C-03'] + answerValue['C-04'],
-    평가: answerValue['E-01'] + answerValue['E-02'],
-    판단: answerValue['E-03'] + answerValue['E-04'],
+    발견: (answerValue['H-01'] + answerValue['H-02']) / 2,
+    인식: (answerValue['H-03'] + answerValue['H-04']) / 2,
+    탐색: (answerValue['D-01'] + answerValue['D-02']) / 2,
+    검색: (answerValue['D-03'] + answerValue['D-04']) / 2,
+    연결: (answerValue['I-01'] + answerValue['I-02']) / 2,
+    결합: (answerValue['I-03'] + answerValue['I-04']) / 2,
+    열정: (answerValue['C-01'] + answerValue['C-02']) / 2,
+    용기: (answerValue['C-03'] + answerValue['C-04']) / 2,
+    평가: (answerValue['E-01'] + answerValue['E-02']) / 2,
+    판단: (answerValue['E-03'] + answerValue['E-04']) / 2,
   };
+  console.log('발견 : ', categoryScores.발견);
+  console.log('인식 : ', categoryScores.인식);
+  console.log('탐색 : ', categoryScores.탐색);
+  console.log('검색 : ', categoryScores.검색);
+  console.log('연결 : ', categoryScores.연결);
+  console.log('결합 : ', categoryScores.결합);
+  console.log('열정 : ', categoryScores.열정);
+  console.log('용기 : ', categoryScores.용기);
+  console.log('평가 : ', categoryScores.평가);
+  console.log('판단 : ', categoryScores.판단);
 
-  const D = categoryScores.탐색 + categoryScores.평가;
-  const d = categoryScores.검색 + categoryScores.판단;
+  const D = categoryScores.탐색 * categoryScores.평가;
+  const d = categoryScores.검색 * categoryScores.판단;
   const Dd = D + d;
-  const I = categoryScores.탐색 + categoryScores.연결;
-  const i = categoryScores.검색 + categoryScores.결합;
+  const I = categoryScores.탐색 * categoryScores.연결;
+  const i = categoryScores.검색 * categoryScores.결합;
   const Ii = I + i;
-  const C = categoryScores.연결 + categoryScores.열정;
-  const c = categoryScores.결합 + categoryScores.용기;
+  const C = categoryScores.연결 * categoryScores.열정;
+  const c = categoryScores.결합 * categoryScores.용기;
   const Cc = C + c;
-  const E = categoryScores.열정 + categoryScores.평가;
-  const e = categoryScores.용기 + categoryScores.판단;
+  const E = categoryScores.열정 * categoryScores.평가;
+  const e = categoryScores.용기 * categoryScores.판단;
   const Ee = E + e;
+  console.log('D : ', D);
+  console.log('I : ', I);
+  console.log('C : ', C);
+  console.log('E : ', E);
+
+  console.log('d : ', d);
+  console.log('i : ', i);
+  console.log('c : ', c);
+  console.log('e : ', e);
+
+  console.log('Dd : ', Dd);
+  console.log('Ii : ', Ii);
+  console.log('Cc : ', Cc);
+  console.log('Ee : ', Ee);
 
   // 총계
   const totalScore = Object.values(categoryScores).reduce(
-    (sum, value) => sum + value,
+    (sum, value) => sum + value * 2,
     0
   );
 
   // 자기 발견
-  const selfDiscovery = categoryScores.발견 / 2;
+  const selfDiscovery = Math.round(categoryScores.발견);
 
   // 기업가 유형
   const priority = ['D', 'I', 'C', 'E'];
@@ -200,7 +223,7 @@ export const detailsOfEBTI = (answerValue: answerValueProps) => {
   const stageOfAgility = functionStageOfAgility();
 
   // 자기 인식
-  const selfAwareness = categoryScores.인식 / 2;
+  const selfAwareness = Math.round(categoryScores.인식);
 
   // 사고 유형
   const functionAccidentType = () => {
@@ -289,6 +312,29 @@ export const detailsOfEBTI = (answerValue: answerValueProps) => {
   };
   const generalOpinion = functionGeneralOpinion();
 
+  // 요즘 내가 협업할 사람
+  const recentCollaborator = `${type[3]}${type[2]}${type[1]}${type[0]}`;
+  const recentCollaboratorDesc = ebti_24
+    .filter((item) => item.type === recentCollaborator)
+    .map((item) => item.desc);
+
+  //요즘 나와 비슷한 사람
+  const recentSimilarPerson = `${type[0]}${type[1]}${type[3]}${type[2]}`;
+  const recentSimilarPersonDesc = ebti_24
+    .filter((item) => item.type === recentSimilarPerson)
+    .map((item) => item.desc);
+
+  // 내 일을 도울 수 있는 사람
+  const whoCanHelpMe = `${type[2]}${type[3]}${type[0]}${type[1]}`;
+  const whoCanHelpMeDesc = ebti_24
+    .filter((item) => item.type === whoCanHelpMe)
+    .map((item) => item.desc);
+  // 요즘 내가 선호하는 사람
+  const whoIPrefer = `${type[1]}${type[0]}${type[2]}${type[3]}`;
+  const whoIPreferDesc = ebti_24
+    .filter((item) => item.type === whoIPrefer)
+    .map((item) => item.desc);
+
   return {
     categoryScores,
     totalScore,
@@ -309,5 +355,13 @@ export const detailsOfEBTI = (answerValue: answerValueProps) => {
     internalTypeOfEntrepreneur,
     diagnosticResults,
     generalOpinion,
+    recentCollaborator,
+    recentCollaboratorDesc,
+    recentSimilarPerson,
+    recentSimilarPersonDesc,
+    whoCanHelpMe,
+    whoCanHelpMeDesc,
+    whoIPrefer,
+    whoIPreferDesc,
   };
 };
