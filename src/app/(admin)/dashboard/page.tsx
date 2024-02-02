@@ -9,6 +9,6 @@ export default function DashboardPage() {
     (async () => {
       router.push('/dashboard/user');
     })();
-  }, []);
+  }, [router]);
   return <div>DashBoard</div>;
 }

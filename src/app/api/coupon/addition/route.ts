@@ -2,36 +2,44 @@ import Coupon from '@/libs/models/coupon.model';
 import { connectDB } from '@/libs/mongodb';
 import mongoose from 'mongoose';
 import { NextResponse } from 'next/server';
-import { v4 as uuidv4 } from 'uuid';
 
 export async function POST(request: Request) {
   await connectDB();
   try {
     const body = await request.json();
-    let { coupon, count, activated } = body;
+    const { coupon, count, limited, activated, expired, expiredAt } = body;
 
-    if (!coupon) {
-      coupon = uuidv4();
-    }
+    const existCouponName = await Coupon.findOne({ coupon });
 
-    const existCoupon = await Coupon.findOne({ coupon });
-    if (existCoupon) {
+    // 이미 쿠폰명이 있을 때
+    if (existCouponName) {
       return NextResponse.json(
         {
-          message: '이미 존재하는 쿠폰 명입니다.',
+          message: '동일한 쿠폰 명이 존재합니다.',
         },
         {
           status: 409,
         }
       );
     }
-    
+
     const newCoupon = new Coupon({
       coupon,
       count,
       activated,
-    });
+    })
 
+    // 수량 제한 쿠폰 일때
+    if(limited){
+      const couponCode = uuidv4();
+      const newCoupon = new Coupon({
+        coupon,
+        count,
+        activated,
+      })
+    }
+    // 쿠폰 만료일 설정
+    // 쿠폰 활성화 여부
     await newCoupon.save();
 
     return NextResponse.json(

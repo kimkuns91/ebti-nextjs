@@ -28,7 +28,7 @@ export default function MyReport() {
 
       setData(result.data);
     })();
-  }, [session, status]);
+  }, [session, status, router]);
 
   return (
     <div className="container py-20 pt-60">

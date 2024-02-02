@@ -22,3 +22,7 @@
 .custom-border::after {
   margin-left: 16px;
 }
+
+/* .react-datepicker__day.other-month {
+  color: #ccc;
+} */
