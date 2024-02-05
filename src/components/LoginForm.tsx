@@ -16,10 +16,13 @@ const LoginForm = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     try {
       e.preventDefault();
+
       const res = await signIn('credentials', {
         email: emailRef.current?.value ?? '',
         password: passwordRef.current?.value ?? '',
+        redirect: false
       });
+
       if (res && res.status === 401) {
         alert('아이디 혹은 비밀번호가 일치하지 않습니다!');
       } else {

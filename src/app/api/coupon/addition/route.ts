@@ -30,14 +30,14 @@ export async function POST(request: Request) {
     })
 
     // 수량 제한 쿠폰 일때
-    if(limited){
-      const couponCode = uuidv4();
-      const newCoupon = new Coupon({
-        coupon,
-        count,
-        activated,
-      })
-    }
+    // if(limited){
+    //   const couponCode = uuidv4();
+    //   const newCoupon = new Coupon({
+    //     coupon,
+    //     count,
+    //     activated,
+    //   })
+    // }
     // 쿠폰 만료일 설정
     // 쿠폰 활성화 여부
     await newCoupon.save();
