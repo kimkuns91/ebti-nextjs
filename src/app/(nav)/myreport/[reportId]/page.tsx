@@ -482,7 +482,7 @@ export default function MyReportByReportId({
                 <ColoredCircle key={index} char={char} />
               ))}
             </div>
-            <p className="text-3xl font-bold">{desc}</p>
+            <p className="text-3xl font-bold">{whoIPreferDesc}</p>
           </div>
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
             <div className="flex flex-col items-center justify-center gap-4 rounded-md border border-slate-400 bg-white p-12">
@@ -491,7 +491,7 @@ export default function MyReportByReportId({
                   <ColoredCircle key={index} char={char} />
                 ))}
               </div>
-              <p className="text-3xl font-bold">{whoIPreferDesc}</p>
+              <p className="text-3xl font-bold">{desc}</p>
             </div>
           </div>
         </div>
